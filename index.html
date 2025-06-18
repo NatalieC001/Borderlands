@@ -579,9 +579,52 @@ tw-link:not(.styled-choice a):active,
 }
 
 
+/*-------------------IMAGE STYLING-------------------------------*/
+/* Base image styling */
+.passage img {
+  max-width: 100%;            /* Never exceed container width */
+  height: auto;               /* Maintain aspect ratio */
+  display: block;             /* Remove inline spacing */
+  margin: 1.5em auto;         /* Vertical spacing + horizontal centering */
+  border-radius: 4px;         /* Soften edges */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Subtle depth */
+}
+
+/* Special styling for maps/important images */
+img.map-image {
+  border: 2px solid var(--choicecolour); /* Gold border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+  max-width: 90%;             /* Slightly smaller than full width */
+}
+
+/* Full-width images (when needed) */
+img.full-width {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Small inline images */
+img.small-inline {
+  max-width: 200px;
+  display: inline;
+  margin: 0 0.5em;
+  vertical-align: middle;
+}
+
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  img.map-image {
+    max-width: 95%;           /* More width on small screens */
+  }
+}
 
 
-/*------------------------------------------------------------*/</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
 $(document).ready(function() {
     $('p').each(function() {
         var text = $(this).text();
@@ -597,7 +640,7 @@ $(document).ready(function() {
 &lt;!--  //all characters can interact with eachother as the user plays thier part in the story, this can affaect the alliances and if players will support eachother when times get difficule and require strong freindships --&gt;
 &lt;!--  [[Interaction Template]]--&gt;}
 &lt;div class=&quot;custom-panel&quot;&gt;
-  &lt;img src=&quot;https://xn--lathean-owa.weebly.com/uploads/5/1/4/9/51493641/housekrensm_orig.png&quot; alt=&quot;Icon&quot; class=&quot;panel-icon&quot; /&gt;
+  &lt;img src=&quot;https://alathean.weebly.com/uploads/5/1/4/9/51493641/housekrensm_orig.png&quot; alt=&quot;Icon&quot; class=&quot;panel-icon&quot; /&gt;
   &lt;div class=&quot;panel-heading&quot;&gt;𑤠𑤂𑥄𑤤𑤱𑤤𑤱𑤬𑤽𑤌𑤱𑤛𑤳𑤠𑤟𑤽𑤎𑤵&lt;br&gt;&lt;/div&gt;
   &lt;span class=&quot;utilityBtn&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Âlathean Decoder Table]]&lt;/span&gt;&lt;span class=&quot;utilityBtn&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Allegiances]]&lt;/span&gt;&lt;span class=&quot;utilityBtn&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[character selection]]&lt;/span&gt;
 &lt;/div&gt;
@@ -649,6 +692,7 @@ Torren stands at a painful crossroads: He must choose loyalty to an oath or to a
  
  &lt;!-- Initialize ally system --&gt;
   (set: $allyThreshold to 50)
+(set: $helpedSiania to false)
 </tw-passagedata><tw-passagedata pid="2" name="Reinforce Duty to the Emperor" tags="" position="475,300" size="100,100">&lt;h2&gt;Reinforce Duty to the Emperor&lt;/h2&gt;
 The Emperor&#39;s command was clear, and the stability of the realm depended on unwavering loyalty. To falter now would be to invite chaos, to unravel the fragile order that kept Solunara from plunging into ruin. Siania&#39;s fate, though painful to contemplate, was a sacrifice demanded by the greater good. Duty was not a choice but a burden to bear, and Torren steeled himself to uphold it, no matter the cost.
 
@@ -692,9 +736,10 @@ The future would demand blood, not compromises. But for now, he let the wind sca
 (set: $emperor to it + 1, $court to it + 1, $jaro to it - 1, $tarek to it - 1)
 (display: &quot;Notification&quot;)
 
-</tw-passagedata><tw-passagedata pid="5" name="A Memory Unbidden" tags="" position="575,450" size="100,100">&lt;!--(set: $choiceMade to false)
+</tw-passagedata><tw-passagedata pid="5" name="A Memory Unbidden" tags="" position="575,425" size="100,100">&lt;!--(set: $choiceMade to false)
 (set: $timer to 15)--&gt;
 &lt;h2&gt;A Memory Unbidden&lt;/h2&gt;
+&lt;div class=&quot;passage&quot;&gt;&lt;img src=&quot;https://alathean.weebly.com/uploads/5/1/4/9/51493641/fortkezerak7-sm_orig.png&quot; alt=&quot;Fort Kezerak&quot;&gt;&lt;/div&gt;
 As the desert wind bit at his face, a sharp memory rose, drawing him back to the beginning. He was eight, bound to Fort Kezarak by tradition, like many boys sent to the border outposts under Lucian rule. He remembered the day Siania came. Barely six, she emerged from a weathered caravan, gaunt and trembling, clutching her nursemaid’s hand after a brutal month-long passage. 
 
 The caravan was wretched, its guards pale and weary, their faces marked by a toil deeper than exhaustion. These were the last faithful of House Ne’Tiriania, bound to her mother, the executed queen, forced by imperial command to bring her into exile, each league southeast a grudging step rather than a chosen path.
@@ -706,13 +751,14 @@ Dust clung to Siania’s face, matting her copper hair, yet her eyes burned with
 
 Soldiers on the walls and in the yard muttered or looked away, their glances shifting between the worn caravan and one another, uneasy in her presence. Their unease wasn&#39;t just from respect for House Ne&#39;Tiriania or its legends. This child bore that bloodline - now stained by her mother&#39;s execution, ordered by their lord, the emperor. They were tasked as keepers of the Emperor&#39;s outcast, bound to chain a once-honored line, a wrong they could neither challenge nor repair. Their silence clashed with their principles, her existence a painful meeting of honorable past and harsh present. Adding to their unease was an Adjudicator from the capital, overseeing the handover, scrutinizing all—.
 
+
 (text-colour:#d0a853)[&#39;&#39;How does young Torren react to Siania’s arrival?&#39;&#39;]
 
 
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Stay quiet, match the guards’ cold demeanor]]&lt;/span&gt;
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Ignore their harshness and offer help anyway.]]&lt;/span&gt;
 
-&lt;!--(live: 1s)[(if: $choiceMade is false)[ (set: $timer to $timer - 1) (if: $timer &lt;= 0)[(set: $choiceMade to true)(goto: &quot;Keep distance, align with the guards’ silent disapproval.&quot;)]]Time remaining: (print: $timer) seconds]--&gt;</tw-passagedata><tw-passagedata pid="6" name="Silently Endure" tags="" position="825,1575" size="100,100">&lt;h2&gt;Torren clenches his fists, forcing himself to look away, burying his anger for the sake of duty.&lt;/h2&gt;
+&lt;!--(live: 1s)[(if: $choiceMade is false)[ (set: $timer to $timer - 1) (if: $timer &lt;= 0)[(set: $choiceMade to true)(goto: &quot;Keep distance, align with the guards’ silent disapproval.&quot;)]]Time remaining: (print: $timer) seconds]--&gt;</tw-passagedata><tw-passagedata pid="6" name="Silently Endure" tags="" position="850,1525" size="100,100">&lt;h2&gt;Torren clenches his fists, forcing himself to look away, burying his anger for the sake of duty.&lt;/h2&gt;
 
 At the center sat Morvaine, Thrice-Scarred Hierophant of the Order of Severin. His skin bore the marks of ceremonial brands across his bare scalp, each scar threaded with black opal. He reclined on velvet cushions, one gaunt hand gripping an iron crozier, the other idly tracing a rosary of finger-bones. Around him gathered scarlet-robed hierarchs, laden with rings, reliquaries, and the cloying scent of attar meant to cover traces of old blood. They chanted litanies of self-denial, even as they surrounded themselves with gem-studded opulence.
 Behind them followed novices in plain cincture and linen—young, earnest, still believing in a sacred purpose. They marched in step, unaware of the records of bribes and tithes swelling Morvaine’s coffers or the dungeons hidden beneath his sanctuaries. The higher one rose in Severin, the more shadowed the paths became; innocence was stripped away layer by layer.
@@ -722,7 +768,7 @@ Torren’s fists clenched tighter, his silence a bitter shield against the injus
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;
- (set: $severin to it + 1, $court to it + 1, $jaro to it - 1, $tarek to it - 1,  $fort to it + 1)</tw-passagedata><tw-passagedata pid="7" name="Offer a Quiet Word of Support" tags="" position="950,1575" size="100,100">&lt;h2&gt;The porter catches Torren&#39;s eye, a flicker of gratitude in his weary gaze, a silent connection forged in shared suffering.&lt;/h2&gt;
+ (set: $severin to it + 1, $court to it + 1, $jaro to it - 1, $tarek to it - 1,  $fort to it + 1)</tw-passagedata><tw-passagedata pid="7" name="Offer a Quiet Word of Support" tags="" position="950,1525" size="100,100">&lt;h2&gt;The porter catches Torren&#39;s eye, a flicker of gratitude in his weary gaze, a silent connection forged in shared suffering.&lt;/h2&gt;
 
  (set: $severin to it - 1, $court to it - 1, $jaro to it + 1, $tarek to it + 1)
  
@@ -733,7 +779,7 @@ The subtle nod Torren gave seemed to ripple quietly through the crowd, a small b
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="8" name="Shield Jaro&#39;s Expression" tags="" position="1075,1575" size="100,100">&lt;h2&gt;Torren subtly steps closer to Jaro, positioning himself to obscure Jaro&#39;s potentially rebellious expression from the passing hierarchs.&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="8" name="Shield Jaro&#39;s Expression" tags="" position="1050,1525" size="100,100">&lt;h2&gt;Torren subtly steps closer to Jaro, positioning himself to obscure Jaro&#39;s potentially rebellious expression from the passing hierarchs.&lt;/h2&gt;
 
  (set: $jaro to it + 1, $tarek to it + 1)
  
@@ -744,7 +790,7 @@ Torren’s protective stance over Jaro seemed to steady the younger man, whose c
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="9" name="Restrained Indignation" tags="" position="950,1725" size="100,100">&lt;h2&gt;Restrained Indignation&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="9" name="Restrained Indignation" tags="" position="950,1625" size="100,100">&lt;h2&gt;Restrained Indignation&lt;/h2&gt;
 Torren felt his gauntlets strain as his fists tightened. Around him, other guardsmen fixed their eyes with the same contained loathing—men and women who would lay down their lives for a comrade, yet stood powerless to act, forced to bury their anger. They had long known the Order of Severin as tax collectors, mediators of disputes, enforcers of the Emperor’s will. But they had not seen this before—the unmasked cruelty, the stark hypocrisy, the overwhelming power laid bare. It wasn’t that they were unaware such things existed; it was the brazenness, presented as righteous and just, that turned their stomachs. It stood against everything they valued: the honor of service, the safeguarding of the vulnerable, the quiet fortitude of duty. To intervene would mark a soldier as heretic and traitor in one fatal move.
 Jaro’s voice came low, a rough whisper. “They name that sanctity.”
 Tarek’s jaw clenched, as if grinding stone. “Sanctity doesn’t draw blood from servants for their stride.”
@@ -806,7 +852,7 @@ Jaro, usually quick with a remark, held his tongue, staring forward. The truth l
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 2  The Diplomat: Shadows of Alliances]]&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="10" name="Chapter 2  The Diplomat: Shadows of Alliances" tags="" position="950,1850" size="100,100">&lt;h2&gt;Chapter 2  The Diplomat: Shadows of Alliances&lt;/h2&gt;
+</tw-passagedata><tw-passagedata pid="10" name="Chapter 2  The Diplomat: Shadows of Alliances" tags="" position="950,1725" size="100,100">&lt;h2&gt;Chapter 2  The Diplomat: Shadows of Alliances&lt;/h2&gt;
 From the observation tier above Fort Kezarak’s arena, Councillor Valerius of House Kren leaned against a colonnade, his silk robes catching the faint breeze. His half-lidded eyes traced three exits: the shadowed servant’s stair…, the ambassador’s gate where bribes flowed freely…, and the crumbling aqueduct he’d mapped alone. A man didn’t survive decades as a diplomat between warring houses without learning that exits mattered more than entrances. Valerius knew the real hazard wasn’t in delivering messages, but in being the one who knew too much—. Words could be twisted, alliances could shift, but a spymaster found dead in an alley sent a message even the densest lord could read—or arrange. He preferred to avoid becoming a footnote in history.
 His senses parsed the air: citrus from the fruit-sellers (expected…), bitter almond on the eastern envoy’s sleeve (intriguing…?), and the faintest trace of wyvern venom on the cupbearer’s gloves (actionable…!). Even as his mind listed threats, his body instinctively shifted, angling his stronger side towards the nearest exit. In the court’s deadly politics, even standing still was a strategy.
 
@@ -886,7 +932,7 @@ Now, Valerius faced a choice: should he escalate the tension, pressing the advan
 [[holds back]]
 
 
-</tw-passagedata><tw-passagedata pid="11" name="Chapter 3  Vestergaard: Thoughts before the fight" tags="" position="350,2775" size="100,100">&lt;h2&gt;Chapter 3  Vestergaard: Thoughts before the fight&lt;/h2&gt;
+</tw-passagedata><tw-passagedata pid="11" name="Chapter 3  Vestergaard: Thoughts before the fight" tags="" position="850,2175" size="100,100">&lt;h2&gt;Chapter 3  Vestergaard: Thoughts before the fight&lt;/h2&gt;
 Siania’s smile shone below. To the enraptured crowd, it was a lover’s glance, warm and teasing; but to Vestergaard, it was a carefully guarded mask—beautiful, yet unreadable. Was it affection or duty? Even his trained eye found no answer. His house had honed him to unmask lies, to pierce the court’s endless deceptions, yet Siania-tempered by exile-remained beyond his reach. Was she playing her part with flawless precision, or did something genuine flicker beneath, a spark meant for him alone? The uncertainty gnawed at him, —a riddle he couldn’t solve. Her fleeting upward glance- a greeting, warning, or mere theater? —slipped through his grasp like sand.
 The thought lingered, unresolved, before his attention slipped to the world below.
 In the arena, Siania’s sword traced a tentative arc, its steel catching Solunara’s faint radiance—a blend of sunlight and moonlight. The blade glinted with a soft, uneven glow: a muted silver-gold that flickered with hints of deeper hues, edged by a faint blue shimmer that seemed to waver at the world’s fringe.
@@ -3813,7 +3859,7 @@ Practitioners wield great power, but at a cost. If they break their metaphysical
 ---
 
 **Limitation:**  
-As you noted, these magics are taxing for the human enchantress, especially if used repeatedly or for long periods. Ash must move quickly and efficiently, relying on the enchantress’s magic only when absolutely necessary.~~Strikethrough Text~~</tw-passagedata><tw-passagedata pid="76" name="Azaroth’s Magic: Mechanisms of Bloodline Enslavement and Temple Corruption" tags="" position="750,8975" size="100,100"></tw-passagedata><tw-passagedata pid="77" name="Grand Conjunction Ritual (Celestial-Linked Symbolic Invocation" tags="" position="750,9075" size="100,100"></tw-passagedata><tw-passagedata pid="78" name="Life Force Binding and Immortality (Aether-Linked Object Transformation + Bloodline Control)" tags="" position="850,8975" size="100,100"></tw-passagedata><tw-passagedata pid="79" name="**Azaroth’s Magic: Mechanisms of Bloodline Enslavement and Temple Corruption**" tags="" position="750,9175" size="100,100"></tw-passagedata><tw-passagedata pid="80" name="Ritual Betrayal and Soul Harvesting" tags="" position="850,9075" size="100,100"></tw-passagedata><tw-passagedata pid="81" name="Generational Manipulation and Cult Control" tags="" position="750,9275" size="100,100"></tw-passagedata><tw-passagedata pid="82" name="Architectural and Ritual Corruption" tags="" position="850,9175" size="100,100"></tw-passagedata><tw-passagedata pid="83" name="Psychological and Political Enslavement" tags="" position="950,8975" size="100,100"></tw-passagedata><tw-passagedata pid="84" name="How This Magic Shapes the Royal Family and Temple" tags="" position="850,9275" size="100,100"></tw-passagedata><tw-passagedata pid="85" name="Author notes: Valerious" tags="" position="825,2100" size="100,100">&lt;H1&gt;Valerius - Political Calculus&lt;/H1&gt;
+As you noted, these magics are taxing for the human enchantress, especially if used repeatedly or for long periods. Ash must move quickly and efficiently, relying on the enchantress’s magic only when absolutely necessary.~~Strikethrough Text~~</tw-passagedata><tw-passagedata pid="76" name="Azaroth’s Magic: Mechanisms of Bloodline Enslavement and Temple Corruption" tags="" position="750,8975" size="100,100"></tw-passagedata><tw-passagedata pid="77" name="Grand Conjunction Ritual (Celestial-Linked Symbolic Invocation" tags="" position="750,9075" size="100,100"></tw-passagedata><tw-passagedata pid="78" name="Life Force Binding and Immortality (Aether-Linked Object Transformation + Bloodline Control)" tags="" position="850,8975" size="100,100"></tw-passagedata><tw-passagedata pid="79" name="**Azaroth’s Magic: Mechanisms of Bloodline Enslavement and Temple Corruption**" tags="" position="750,9175" size="100,100"></tw-passagedata><tw-passagedata pid="80" name="Ritual Betrayal and Soul Harvesting" tags="" position="850,9075" size="100,100"></tw-passagedata><tw-passagedata pid="81" name="Generational Manipulation and Cult Control" tags="" position="750,9275" size="100,100"></tw-passagedata><tw-passagedata pid="82" name="Architectural and Ritual Corruption" tags="" position="850,9175" size="100,100"></tw-passagedata><tw-passagedata pid="83" name="Psychological and Political Enslavement" tags="" position="950,8975" size="100,100"></tw-passagedata><tw-passagedata pid="84" name="How This Magic Shapes the Royal Family and Temple" tags="" position="850,9275" size="100,100"></tw-passagedata><tw-passagedata pid="85" name="Author notes: Valerious" tags="" position="1025,2100" size="100,100">&lt;H1&gt;Valerius - Political Calculus&lt;/H1&gt;
 (text-colour: &quot;#c0975f&quot;)[&lt;h2&gt;A Damaged but Valuable Ally:&lt;/h2&gt;]
 Vestergaard arrives at House Kren as Siania&#39;s betrothed, but also as a rebel Lord Heir fleeing his own mother and the Order of Severin. This dual status is infinitely more useful to Valerius than if Vestergaard arrived simply as a rebel.
 
@@ -4876,7 +4922,7 @@ Yet in that stolen moment of rebellion – in that spark of humanity even the Ad
 
 Torren&#39;s defiance that day—an eight-year-old boy shielding a frightened six-year-old exile when no one else would—marked the first crack in the fort&#39;s indifference. Back then, he hadn&#39;t thought of it as courage. He had just been a child himself, reacting to the raw injustice of her exile. But that instinctive act had become the foundation of something unshakable.
 
-To the Order, they had been nothing - a nameless orphan and the disgraced daughter of a condemned house, already expunged from official records. Torren&#39;s childish defiance meant nothing against the machinery of Severin&#39;s justice. Yet as the years hardened them both, the truth had become undeniable. He had been her stubborn protector even when he could barely lift a training sword. She had become the sister of his heart long before either understood what that bond would demand.
+To the Order of Severin, they had been nothing - a nameless orphan and the disgraced daughter of a condemned house, already expunged from official records in a remote outpost the world had forgotten. Torren&#39;s childish defiance meant nothing against the machinery of Order&#39;s justice. Yet as the years hardened them both, the truth had become undeniable. He had been her stubborn protector even when he could barely lift a training sword. She had become the sister of his heart long before either understood what that bond would demand.
 
 Now, at twenty-eight, Torren looked back and saw the shape of their loyalty—forged not in grand gestures but in countless quiet acts of defiance against a world that had cast her out.
 
@@ -4890,7 +4936,7 @@ Now, at twenty-eight, Torren looked back and saw the shape of their loyalty—fo
 (set: $jaro to it + 1)
 (set: $tarek to it + 1)
 (set: $fortKezerakApproval to it + 3)
-(set: $KezerakRevolt to it + 3)</tw-passagedata><tw-passagedata pid="118" name="Days of Innocence" tags="" position="550,700" size="100,100">&lt;h2&gt;Days of Innocence&lt;/h2&gt;
+(set: $KezerakRevolt to it + 3)</tw-passagedata><tw-passagedata pid="118" name="Days of Innocence" tags="" position="575,600" size="100,100">&lt;h2&gt;Days of Innocence&lt;/h2&gt;
 His gaze drifted to the distant dunes beyond the fort’s walls, where the sand shimmered under the harsh sun, and Torren couldn’t help but see them as children again, racing across that same unforgiving terrain toward incoming caravans. Torren remembered her as a child—racing across the dunes with the rest of them to meet Talon’s caravans, all of them half-wild, half-starved, and wholly incorrigible. 
 
  (text-colour:#d0a853)[How does Torren use his influence during the race?]
@@ -4902,16 +4948,22 @@ His gaze drifted to the distant dunes beyond the fort’s walls, where the sand 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[He calls out sharply to the boys, ordering them to wait for Siania]] &lt;/span&gt;
 
  
- --------------------------------
-[[Arrive at carravan]]
+
+
 
 
 </tw-passagedata><tw-passagedata pid="119" name="Stories Roots in the desert" tags="" position="550,1300" size="100,100">&lt;h2&gt;Roots in the Desert&lt;/h2&gt;
-Siania cherished the stories of that ancient strife above all, her voice hushed with reverence as she touched the altered ground, as if her exile and unspoken magic tied her to its wounds. She always sat at the heart of their circle, red hair wild, green eyes alight, the desert sand sometimes stirring at her feet in ways only the other children noticed. For Siania, the desert was more than a backdrop; it was woven into her being, an unstrippable strength and anchor—a home after all that had been lost, connecting her to her lineage&#39;s past..
+Siania cherished the stories of that ancient strife above all, her voice hushed with reverence as she touched the altered ground, as if her exile and unspoken magic tied her to its wounds. She always sat at the heart of their circle, red hair wild, green eyes alight, the desert sand sometimes stirring at her feet in ways only the other children noticed. For Siania, the desert was more than a backdrop; it was woven into her being, an unstrippable strength and anchor—a home after all that had been lost, connecting her to her lineage&#39;s past.
 
-Years later, as the memory lingered, Torren uncovered a subtle undercurrent he hadn’t grasped as a boy. He realized that some guards and officers at the fort must have been loyalists, wielding enough influence to shield gatherings in the narrow shade by the fort’s wall, where tales of a fallen house were told openly. They turned a blind eye or even encouraged these stories, obfuscating the origins of purchases with tax collectors of the Order of Severin to allow Kren caravans entry. Among the caravan drivers, Torren recalled discreet tattoos of a white crane—the mark of House Kren, staunch supporters of House Ne’Tiriania—who likely wished for Siania as their future queen. These drivers, distinct from the usual sturdy hands with their quiet strength and bearing, were probably active Kren Legion, tasked not only with transporting goods but with a deeper purpose. Their visits were no accident; they brought gifts of dates, stories in the shade, and an intangible flicker of hope, clearly meant to inspire Siania and the other children with her heritage. 
+Years later, Torren pieced together what he&#39;d missed as a boy. The caravan drivers who brought dates and supplies to the fort weren&#39;t just traders. Some bore the white crane tattoo of the Kren Legion—men with a quiet discipline that set them apart from ordinary merchants. Their visits always coincided with the gatherings in the narrow shade of the fort&#39;s wall, where stories of House Ne&#39;Tiriania&#39;s fall were told.
 
-Over time, many of those familiar faces—drivers and perhaps guards—vanished, their fate unknown, and the cherished visits ceased as if disrupted by some unseen shift beyond the fort’s gaze, leaving a void where hope once flickered. This deepened the ache of Siania’s potential loss; bound to the desert, she might embody a hidden hope within this quiet resistance—a network honoring her lineage over their oaths to the Emperor. It was a hope Torren, Jaro, and Tarek had unknowingly guarded, their protection woven into this unspoken allegiance to her as a potential queen.
+House Kren were still loyalists, Torren realized. These drivers weren&#39;t just hauling goods; they were soldiers, tasked with more than supply runs. They came to remind Siania—and the other children—of who she was. Of who they all might have been, had the war ended differently. They wanted her as their queen.
+
+The guards&#39; complicity made sense now. Some officers turned a blind eye to the meetings, even smoothed the way for the caravans to pass the Order of Severin&#39;s tax collectors.
+
+Over time, many of those familiar faces—drivers vanished, their fate unknown, and the cherished visits ceased as if disrupted by some unseen shift beyond the fort&#39;s gaze, leaving a void where hope once flickered.
+
+This deepened the ache of Siania&#39;s potential loss; bound to the desert, she might embody a hidden hope within this quiet resistance—a network honoring her lineage over their oaths to the Emperor. It was a hope Torren, Jaro, and Tarek had unknowingly guarded, their protection woven into this unspoken allegiance to her as a potential queen.
 
 
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|A mind adrift]]&lt;/span&gt;
@@ -5004,15 +5056,15 @@ Torren must decide how to react in the moment, balancing his duty with his growi
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Shield Jaro&#39;s Expression]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="125" name="Days of Innocence 2" tags="" position="550,1200" size="100,100">&lt;h2&gt;Days of Innocence 2&lt;/h2&gt;
 Once the wagons were empty, they&#39;d huddle in the blue shade by the courtyard wall, the driver weaving stories of pirates, whirlpools, and true khamsin with feigned exasperation and real warmth. Their knack for turning anything into a game was evident in how they jostled for the best listening spot near the unloading area.
 
-As the afternoon waned and the shadows grew longer, the mood shifted. The ancient tales quieted them—accounts of mage wars that had shattered what was once a idylic realm. From where they sat, the children could see the distant silhouette of Fort Kezarak&#39;s southwestern flank where the walls merged with the Great Cliff, its sheer face still bearing the marks of the sorcery that had created the Mage Sands. Where rivers once cut through green valleys and forests stretched to the horizon, now only fissures, sinkholes, and crystallized sandrifts remained—scars of betrayal and power.
+As the afternoon waned and the shadows grew longer, the mood shifted. The ancient tales quieted them—accounts of mage wars that had shattered what was once an idyllic realm. From where they sat, the children could see the distant silhouette of Fort Kezarak’s southwestern flank, where the walls merged with the Great Cliff. Its sheer face was carved with a deep incision, running straight down to the base, scarring the wall and bursting into the pockmarked, blistered sand below. There, deep obsidian shards still shone from the heat that had turned it into glass—the marks of the sorcery that had created the Mage Sands. Where rivers once cut through green valleys and forests stretched to the horizon, now only fissures, sinkholes, and crystallized sand drifts remained—scars of betrayal and power.
 
-Torren recalled a driver&#39;s eyes glinting as he spoke of a Ne&#39;Tiriania mage who fell there, looking at Siania as if glimpsing her legacy. He framed it as a final stand—a desperate defense of the land where her ancestors raised their banners (before the great house Ne&#39;Tiriania fled to Talin, abandoning the old southern palace and Fort Kezarak, later claimed by the Emperor under Lucian rule).
+Torren remembered the driver’s eyes glinting as he spoke of a Ne’Tiriania mage who had fallen there. He looked at Siania as if seeing her own legacy in the story. The driver called it a final stand—a desperate defense of the land where her ancestors once raised their banners. House Ne’Tiriania later fled to Talin, abandoning their home in the old southern palace and Fort Kezarak, which was eventually claimed by the Emperor under Lucian rule.
 
 
 
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Stories Roots in the desert]]&lt;/span&gt;
 
-</tw-passagedata><tw-passagedata pid="126" name="He runs ahead with the others, she&#39;s not part of their circle." tags="" position="850,700" size="100,100">&lt;h2&gt;He runs ahead with the others, leaving Siania behind, making clear she’s not yet part of their circle..&lt;/h2&gt;
+</tw-passagedata><tw-passagedata pid="126" name="He runs ahead with the others, she&#39;s not part of their circle." tags="" position="675,750" size="100,100">&lt;h2&gt;He runs ahead with the others, leaving Siania behind, making clear she’s not yet part of their circle..&lt;/h2&gt;
 
 The others follow without hesitation, their pace quickening as Torren leads. He&#39;s always been the fastest, the one to follow, some think, falling into step. Siania stays behind, the space between her and the group growing. //She&#39;s different,// others murmur, watching her. The distance feels natural to some, but to others, the absence weighs heavier than before.
 
@@ -5021,7 +5073,7 @@ The others follow without hesitation, their pace quickening as Torren leads. He&
 &lt;!--Stories Roots in the desert--&gt;
 (set: $torren to it - 1, $jaro to it - 1, $tarek to it - 1, $fortKezerakApproval to it - 1)
 (set: $notificationMessage to &quot;-1 Fort Kezerak, Jaro and Tarek disapprove&quot;)
-(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="127" name="He slows to run beside Siania" tags="" position="750,700" size="100,100">&lt;h2&gt;He slows to run beside Siania, falling into step with her without fanfare..&lt;/h2&gt;
+(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="127" name="He slows to run beside Siania" tags="" position="550,750" size="100,100">&lt;h2&gt;He slows to run beside Siania, falling into step with her without fanfare..&lt;/h2&gt;
 
 The painted wagons of the storytellers&#39; caravan beckoned in the distance. Torren, usually the first to race ahead, matched his stride to Siania&#39;s. Her small legs worked hard to keep up, her face bright with the effort. He offered no words, no grand gesture, just a steady presence. The other boys, drawn to Torren&#39;s quiet strength, eased their pace without being told. A few glanced at Siania, noticing the determination in her face, the way she struggled to keep up. A flicker of understanding passed between them. //Maybe she&#39;s not so bad//, one seemed to think. //Torren&#39;s looking out for her.// The wagons still promised treats and tales, but the race had subtly transformed into a shared journey, one where Siania now had a place.
 
@@ -5032,9 +5084,10 @@ The painted wagons of the storytellers&#39; caravan beckoned in the distance. To
 
 
 &lt;!--Stories Roots in the desert--&gt;
+(set: $helpedSiania to true)
 (set: $torren to it + 1, $jaro to it + 1, $tarek to it + 1, $fortKezerakApproval to it + 1)
-(set: $notificationMessage to &quot;+1 Fort Kezerak, Jaro and Tarek approve&quot;)
-(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="128" name="He calls out sharply to the boys, ordering them to wait for Siania" tags="" position="950,700" size="100,100">&lt;h2&gt;He calls out sharply to the boys, ordering them to wait for Siania..&lt;/h2&gt;
+(set: $notificationMessage to &quot;+1 Fort Kezerak, Jaro and Tarek approve, Ran with the fox&quot;)
+(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="128" name="He calls out sharply to the boys, ordering them to wait for Siania" tags="" position="775,750" size="100,100">&lt;h2&gt;He calls out sharply to the boys, ordering them to wait for Siania..&lt;/h2&gt;
 
 
 His voice cuts through the air, firm and unyielding. He&#39;s always got to be in charge, some think, bristling at the command. The group halts abruptly, eyes flicking between one another and Torren. //Why does he always have to make it a thing? //others wonder, resenting the forced situation. The children&#39;s own sense of choice is overridden. Siania stands caught in the middle—pulled forward by his command, yet uneasy with the attention it draws. She didn&#39;t ask for this, some realize, feeling a mix of pity and resentment. Friendships aren’t something to be commanded, and the weight of his authority leaves a tension that lingers long after the race resumes.
@@ -5211,21 +5264,21 @@ His voice cuts through the air, firm and unyielding. He&#39;s always got to be i
   &lt;div class=&quot;custom-panel-item&quot;&gt;
     &lt;div class=&quot;panel-text&quot;&gt;Lucian Empire&lt;/div&gt;
     &lt;div class=&quot;panel-icon button-icon&quot;&gt;
-      [[&lt;img src=&quot;https://xn--lathean-owa.weebly.com/uploads/5/1/4/9/51493641/talon_orig.jpg&quot; alt=&quot;Passage One Icon&quot; style=&quot;width:100%; height:auto;&quot;&gt;-&gt;Lucian Empire]]
+      [[&lt;img src=&quot;https://alathean.weebly.com/uploads/5/1/4/9/51493641/talon_orig.jpg&quot; alt=&quot;Passage One Icon&quot; style=&quot;width:100%; height:auto;&quot;&gt;-&gt;Lucian Empire]]
     &lt;/div&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;custom-panel-item&quot;&gt;
     &lt;div class=&quot;panel-text&quot;&gt;Diplomat&lt;/div&gt;
     &lt;div class=&quot;panel-icon button-icon&quot;&gt;
-      [[&lt;img src=&quot;https://xn--lathean-owa.weebly.com/uploads/5/1/4/9/51493641/house-sabla-small_orig.png&quot; alt=&quot;Passage Two Icon&quot; style=&quot;width:100%; height:auto;&quot;&gt;-&gt;Passage Two]]
+      [[&lt;img src=&quot;https://alathean.weebly.com/uploads/5/1/4/9/51493641/house-sabla-small_orig.png&quot; alt=&quot;Passage Two Icon&quot; style=&quot;width:100%; height:auto;&quot;&gt;-&gt;Passage Two]]
     &lt;/div&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;custom-panel-item&quot;&gt;
     &lt;div class=&quot;panel-text&quot;&gt;Loyalist&lt;/div&gt;
     &lt;div class=&quot;panel-icon button-icon&quot;&gt;
-      [[&lt;img src=&quot;https://xn--lathean-owa.weebly.com/uploads/5/1/4/9/51493641/housekrensm_orig.png&quot; alt=&quot;Passage Three Icon&quot; style=&quot;width:100%; height:auto;&quot;&gt;-&gt;Passage Three]]
+      [[&lt;img src=&quot;https://alathean.weebly.com/uploads/5/1/4/9/51493641/housekrensm_orig.png&quot; alt=&quot;Passage Three Icon&quot; style=&quot;width:100%; height:auto;&quot;&gt;-&gt;Passage Three]]
     &lt;/div&gt;
   &lt;/div&gt;
 
@@ -5389,6 +5442,8 @@ But that day, he hadn&#39;t even looked up when the wagon arrived. No bargaining
 
 The memory burned now. He&#39;d taken the easy path - showering Siania with individual attention instead of doing the harder work of weaving her into their group. A real leader would have found a way to make her part of their hustle, to let her shine while keeping the crew whole. Instead, he&#39;d broken their rhythm and called it kindness.
 
+
+
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Days of Innocence 2]]&lt;/span&gt;
 
 (set: $notificationMessage to &quot;The boys resent Torren&#39;s favoritism. No approval gained.&quot;)
@@ -5411,13 +5466,13 @@ The driver let out a low whistle, turning the pebble in his calloused hands. “
 
 Jaro leaned in. “That’s not a crack—that’s a sand-scribe’s line. The desert writes its history into these stones. See how the color pools around the marks? That’s the ink of the dunes.”
 
-The driver snorted. “Poetry won’t pay you, boy. And ‘small’ just means less weight for my wagon.”
+The driver snorted. “Poetry won’t pay you, boy. And ‘small’ just means less weight for my wagon, and less meat on my plate.”
 
 Tarek crossed his arms. “Small means it danced through the sinkholes and lived. The Mage Sands chew up the big ones. This little beauty? It’s clever. Like the fox who brought it.”
 
 The driver chuckled. “So now cracks are history and small means lucky? You lot could sell sunlight to a desert hawk.”
 
-Siania’s voice was soft but firm. “It’s proof. Proof the sands gave this one up. You won’t find another—not unless you know where to look.” She paused... “And who to ask.”
+Siania’s voice was soft but firm. “The sands gave this one up its lucky. You won’t find another—not unless you know where to look.” She paused knowingly... “And who to ask.”
 
 The driver opened his mouth—but Torren stepped forward, his usual grin gone sharp. He plucked the pebble from the man’s palm and held it up to the light.
 
@@ -5425,7 +5480,9 @@ The driver opened his mouth—but Torren stepped forward, his usual grin gone sh
 
 A beat of silence. The driver’s eyes gleamed as he weighed Torren’s words. Then he laughed, slapping his knee.
 
-&quot;More than I thought, eh? Three sweets won&#39;t cover a guide to those cursed sands.&quot; The driver dug into his coat, then jerked a thumb toward his wagon. &quot;Tell you what, fox-cub—since you&#39;re the one who braved the sands for this, you get a handful of sweets, a story worth twice that pebble, and...&quot; He paused, eyeing the boys&#39; eager faces, then grinned. &quot;Enough practice blades for the lot of you—wooden ones, mind, and a couple of slings thrown in. But!&quot; He held up a warning finger. &quot;She decides how to split it. That&#39;s the rule when one brings the treasure, ain&#39;t it?&quot;
+“Seems I underestimated what you brought me, eh? I suspect I wouldn’t have the gold to pay for a guide to those cursed sands.” He winked fondly at his favorite hucksters. Truthfully, it was a fine stone—and a month’s travel from here, where even a halfway interesting rock gained value, since there was nothing like it in the capital. (If he could get back in one piece, that is.)
+
+The driver dug into his coat, then jerked a thumb toward his wagon. “Tell you what, fox-cub—since you’re the one who braved the sands for this, you get a handful of sweets, a story worth twice that pebble, and…” He paused, eyeing the boys’ eager faces, then grinned. “Enough practice blades for the lot of you—wooden ones, mind, a couple of slings, and a few small knives. But!” He held up a warning finger. “She decides how to split it. That’s the rule when one brings the treasure, ain’t it?”
 
 The boys erupted into hushed excitement. Jaro nudged forward, unable to contain himself. &quot;Fair&#39;s fair! We all helped raise the price, didn&#39;t we?&quot; His eyes darted to Siania, half-pleading, half-calculating. &quot;That&#39;s worth something.&quot;
 
@@ -5476,7 +5533,7 @@ The driver chuckled, watching their squabble with amusement. &quot;Her stone, he
     (stop:)
   ]
 ]
-}</tw-passagedata><tw-passagedata pid="140" name=" Siania Shares" tags="" position="850,1250" size="100,100">&lt;H2&gt;Siania Shares&lt;/H2&gt;
+}</tw-passagedata><tw-passagedata pid="140" name=" Siania Shares" tags="" position="775,1225" size="100,100">&lt;H2&gt;Siania Shares&lt;/H2&gt;
 
 Siania looked at the slings and swords, then at the boys. A shy smile spread across her face. “We can share,” she said quietly.
 
@@ -5504,7 +5561,7 @@ As Siania distributed the spoils with careful fairness, the driver caught Torren
 (display: &quot;Notification&quot;)
 (set: $fortKezerakApproval to it + 2, $jaro to it + 1, $tarek to it +1, $loyalistApproval to it +1)
 
-</tw-passagedata><tw-passagedata pid="141" name=" Siania Keeps" tags="" position="750,1150" size="100,100">&lt;H2&gt;Siania Keeps&lt;/H2&gt;
+</tw-passagedata><tw-passagedata pid="141" name=" Siania Keeps" tags="" position="775,1125" size="100,100">&lt;H2&gt;Siania Keeps&lt;/H2&gt;
 
 Siania looked at the slings and swords, a glint of determination in her eyes. “All mine,” she said, clutching the prizes tightly.
 
@@ -5529,13 +5586,13 @@ But it wasn&#39;t just the boys whose opinions mattered. Siania felt a subtle ch
 (set: $jaro to $jaro - 1)
 (set: $tarek to $tarek - 1)
 (set: $torren to $torren - 1)
-(set: $loyalistApproval to $loyalistApproval - 1)</tw-passagedata><tw-passagedata pid="142" name="escalates tension" tags="" position="650,1925" size="100,100">&lt;H2&gt;The Diplomat - A Reckless Gambit&lt;/H2&gt;
+(set: $loyalistApproval to $loyalistApproval - 1)</tw-passagedata><tw-passagedata pid="142" name="escalates tension" tags="" position="875,1850" size="100,100">&lt;H2&gt;The Diplomat - A Reckless Gambit&lt;/H2&gt;
 
 Valerius let a faint edge creep into his smile, holding Lady Vestergaard’s gaze a moment longer—a silent dare to test her composure. The polite veneer between them cracked just enough to reveal the undercurrents of rivalry and threat. Her attendants stiffened, exchanging wary glances. Her son’s expression flickered with interest, recognizing the boldness but also the risk. He preferred subtlety, but understood the power of a well-timed provocation.
 
 A cold wave of self-reproach washed over Valerius. This was not strength; it was a misjudgment. The Count’s son had once traded with House Kren—an alliance now severed. Valerius had needed to secure the son’s cooperation to forge an alliance vital for the realm’s stability. Now, lacking any real leverage, his reckless challenge had scuttled that possibility. The fragile bonds that kept the border towns supplied with iron and wheat—and thus the realm secure—were imperiled by his error. Worse still, he had invited the wrath of House Vestergaard itself, led by Lady Vestergaard, whose son was soon to marry the Emperor’s daughter and currently enjoyed the emperors favor. The consequences of this misstep would not be easily borne.
 
-[[return to sianias trial]]</tw-passagedata><tw-passagedata pid="143" name="holds back" tags="" position="775,1925" size="100,100">&lt;H2&gt;The Diplomat - A Measured Pause&lt;/H2&gt;
+[[return to sianias trial]]</tw-passagedata><tw-passagedata pid="143" name="holds back" tags="" position="1000,1850" size="100,100">&lt;H2&gt;The Diplomat - A Measured Pause&lt;/H2&gt;
 
 Valerius returned Lady Vestergaard’s cool appraisal with a polite, unreadable smile—the faintest suggestion of warmth, carefully measured. The court was a game of patience and precision; now was not the time to reveal his hand or risk alienating a powerful house. He needed to preserve the fragile possibility of alliance with the Count’s son, whose cooperation was vital to securing the realm’s borders.
 
@@ -5547,7 +5604,7 @@ Darian’s fingers drummed lightly on the armrest, his thoughts unreadable. He s
 
 By holding back, Valerius chose prudence over bravado. He would wait, watch, and seek subtler means to rebuild trust and forge the alliance necessary to stabilize the realm. The game was far from over, and patience might yet turn the tide.
 
-[[return to sianias trial]]</tw-passagedata><tw-passagedata pid="144" name="return to sianias trial" tags="" position="625,2125" size="100,100">&lt;H2&gt;Return to the Passing&lt;/H2&gt;
+[[return to sianias trial]]</tw-passagedata><tw-passagedata pid="144" name="return to sianias trial" tags="" position="850,2050" size="100,100">&lt;H2&gt;Return to the Passing&lt;/H2&gt;
 
 His gaze snapped back to Siania, then involuntarily to Vestergaard. The Count’s face was rapt. Their bond. If the old blood’s power was real – and the impossible evidence screamed that it was – then their union wasn’t just a political trap laid by Severin. It was a potential conduit for the very force the Order sought to control… or a spark to ignite that force against them, guided by its own inscrutable purpose. Magic might &quot;use&quot; them, his mentor warned. But to what end? Against Severin?
 
@@ -5699,13 +5756,18 @@ Your interaction with Lady Vestergaard:
 ]]
 
 [[Continue|Interaction Template]]
-}</tw-passagedata><tw-passagedata pid="148" name="Hidden Option" tags="" position="1050,100" size="100,100">This option would normally be hidden because the Emperor has decent relations with Lady Vestergaard. Threatening her would be out of character.</tw-passagedata><tw-passagedata pid="149" name="Arrive at carravan" tags="" position="675,850" size="100,100">&lt;H2&gt;Arrive at carravan&lt;/H2&gt;
+}</tw-passagedata><tw-passagedata pid="148" name="Hidden Option" tags="" position="1050,100" size="100,100">This option would normally be hidden because the Emperor has decent relations with Lady Vestergaard. Threatening her would be out of character.</tw-passagedata><tw-passagedata pid="149" name="Arrive at carravan" tags="" position="650,875" size="100,100">&lt;H2&gt;Arrive at carravan&lt;/H2&gt;
 
 They’d crowd around the drivers, slipping a jest pebble into a pocket, pressing bits of desert glass, shiny stones, and odd trinkets—scavenged or “borrowed”—into calloused hands, clamoring for more stories, more sweets, more of anything the world might give.
 
 The drivers, dusty and road-weary, were masters of mischief in their own right. With a sly grin and a twinkle in their eye, they’d spin tales so tantalizing that the children would beg to hear the next part—only to be told, with exaggerated regret, that the stories could only continue once the wagons were unloaded. “Ah, but the best part’s at the bottom of this crate,” a driver might say, patting a heavy chest, “and my old bones can’t lift it alone.” The children, incorrigible hucksters themselves, recognized the game, but dove in anyway—leading the caravan upto the fort as a dubious honourgard then bartering their labor for each new scrap of adventure, their shouts of “more, more, more!” a never-ending payment demanded for their efforts.
 
-Still, Siania lingered at the edges of the group, her small frame and quiet ways making her an uncertain presence among the boys. Torren could feel the shift—how the boys held back, unsure what to make of her. He could keep the best for himself, proving who was in charge; stick close to Siania, letting the others drift; or find a way to pull them all in, weaving her into the game as only he knew how.
+(if: $helpedSiania)[
+The boys kept close to Siania as they mingled with the others, her eyes bright with anticipation now that they had arrived. She had felt alone before, and even if this was only a beginning, it was better than what had been. The boys glanced at her with quiet smiles, impressed by her effort. They watched her out of the corners of their eyes—no longer wary, but not quite sure how to welcome her, either. Their laughter grew a little louder when she drew near, their boasts a touch more extravagant, as if hoping to impress her without seeming too eager. Every so often, one would nudge a shiny stone her way or toss her a sweet with a crooked grin, testing the waters of new friendship. It was clear they wanted her to join in, even if they didn’t yet know how to say so.
+](else:)[
+Still, Siania lingered at the edges of the group, her small frame and quiet ways making her an uncertain presence among the boys. 
+]
+Torren could feel the shift—how the boys held back, unsure what to make of her. He could keep the best for himself, proving who was in charge; stick close to Siania, letting the others drift; or find a way to pull them all in, weaving her into the game as only he knew how.
 
 
 (text-colour:#c0975f)[&#39;&#39;What does Torren do?&#39;&#39;]
