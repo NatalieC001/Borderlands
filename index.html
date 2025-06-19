@@ -689,7 +689,8 @@ Torren stands at a painful crossroads: He must choose loyalty to an oath or to a
     &quot;torren&quot;, (datamap: &quot;loyalty&quot;, (datamap: &quot;emperor&quot;, 0, &quot;ladyVestergaard&quot;, 0, &quot;severin&quot;, 0, &quot;court&quot;, 0, &quot;ash&quot;, 0, &quot;vestergaard&quot;, 0, &quot;jaro&quot;, 0, &quot;tarek&quot;, 0, &quot;agamar&quot;, 0, &quot;kaleth&quot;, 0, &quot;arafis&quot;, 0, &quot;valerius&quot;, 0, &quot;draethlyn&quot;, 0, &quot;KezerakRevolt&quot;, 0, &quot;halak&quot;, 0, &quot;siania&quot;, 0), &quot;allies&quot;, (array:), &quot;morality&quot;, 0, &quot;sway&quot;, 0)
   ))
 
- 
+
+
  &lt;!-- Initialize ally system --&gt;
   (set: $allyThreshold to 50)
 (set: $helpedSiania to false)
@@ -704,6 +705,7 @@ The oath is everything; feelings must wait.
 (set: $notificationMessage to &quot;Emperor &amp; Court approval +1\nJaro &amp; Tarek approval -1&quot;)
 (set: $emperor to it + 1, $court to it + 1, $jaro to it - 1, $tarek to it - 1)
 (display: &quot;Notification&quot;)
+(set: $lastPassage to (passage:)&#39;s name)
 
 
 </tw-passagedata><tw-passagedata pid="3" name="Focus on Protecting Siania" tags="" position="575,300" size="100,100">&lt;h2&gt;Focus on Protecting Siania&lt;/h2&gt;
@@ -717,6 +719,7 @@ Though bound by an oath to the Emperor, Torren’s true loyalty lay with the ide
 (set: $notificationMessage to &quot;Emperor &amp; Court approval -1, Jaro &amp; Tarek approval +1&quot;)
 (set: $emperor to it - 1, $court to it - 1, $jaro to it + 1, $tarek to it + 1)
 (display: &quot;Notification&quot;)
+(set: $lastPassage to (passage:)&#39;s name)
 
 
 
@@ -735,6 +738,7 @@ The future would demand blood, not compromises. But for now, he let the wind sca
 (set: $notificationMessage to &quot;Emperor &amp; Court approval -1, Jaro &amp; Tarek approval + 1&quot;)
 (set: $emperor to it + 1, $court to it + 1, $jaro to it - 1, $tarek to it - 1)
 (display: &quot;Notification&quot;)
+(set: $lastPassage to (passage:)&#39;s name)
 
 </tw-passagedata><tw-passagedata pid="5" name="A Memory Unbidden" tags="" position="575,425" size="100,100">&lt;!--(set: $choiceMade to false)
 (set: $timer to 15)--&gt;
@@ -758,39 +762,60 @@ Soldiers on the walls and in the yard muttered or looked away, their glances shi
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Stay quiet, match the guards’ cold demeanor]]&lt;/span&gt;
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Ignore their harshness and offer help anyway.]]&lt;/span&gt;
 
-&lt;!--(live: 1s)[(if: $choiceMade is false)[ (set: $timer to $timer - 1) (if: $timer &lt;= 0)[(set: $choiceMade to true)(goto: &quot;Keep distance, align with the guards’ silent disapproval.&quot;)]]Time remaining: (print: $timer) seconds]--&gt;</tw-passagedata><tw-passagedata pid="6" name="Silently Endure" tags="" position="850,1525" size="100,100">&lt;h2&gt;Torren clenches his fists, forcing himself to look away, burying his anger for the sake of duty.&lt;/h2&gt;
+&lt;!--(live: 1s)[(if: $choiceMade is false)[ (set: $timer to $timer - 1) (if: $timer &lt;= 0)[(set: $choiceMade to true)(goto: &quot;Keep distance, align with the guards’ silent disapproval.&quot;)]]Time remaining: (print: $timer) seconds]--&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="6" name="Silently Endure" tags="" position="825,1525" size="100,100">&lt;h2&gt;Torren clenches his fists, forcing himself to look away, burying his anger for the sake of duty.&lt;/h2&gt;
 
-At the center sat Morvaine, Thrice-Scarred Hierophant of the Order of Severin. His skin bore the marks of ceremonial brands across his bare scalp, each scar threaded with black opal. He reclined on velvet cushions, one gaunt hand gripping an iron crozier, the other idly tracing a rosary of finger-bones. Around him gathered scarlet-robed hierarchs, laden with rings, reliquaries, and the cloying scent of attar meant to cover traces of old blood. They chanted litanies of self-denial, even as they surrounded themselves with gem-studded opulence.
-Behind them followed novices in plain cincture and linen—young, earnest, still believing in a sacred purpose. They marched in step, unaware of the records of bribes and tithes swelling Morvaine’s coffers or the dungeons hidden beneath his sanctuaries. The higher one rose in Severin, the more shadowed the paths became; innocence was stripped away layer by layer.
-The procession pressed forward, a tangible force of sanctioned harshness, pushing legionaries to the roadside. A single nod from Morvaine prompted an acolyte to lash a porter with greater force, a display of unchecked authority. Dust blended with incense; blood dotted the heated stone.
 Torren’s fists clenched tighter, his silence a bitter shield against the injustice. Around him, the other guardsmen mirrored his restraint, their anger simmering beneath the surface, unspoken but shared.
+
+But Jaro’s fury was not so easily hidden. His glare flashed, sharp and unyielding, and this time Torren was too slow—he did not move to shield his friend. A Severin acolyte’s gaze caught the moment, pausing just long enough for Torren’s heart to sink.
+
+The acolyte’s lips curled in a thin, knowing smile. He whispered to another, and both made a note of Jaro’s face. The procession moved on, but the air felt colder.
+
+Jaro’s anger faded into dread as he realized his mistake. Torren forced himself to look away, jaw tight, knowing the Severin would remember. The fort’s defiance had been seen, and now, likely watched.
 
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;
- (set: $severin to it + 1, $court to it + 1, $jaro to it - 1, $tarek to it - 1,  $fort to it + 1)</tw-passagedata><tw-passagedata pid="7" name="Offer a Quiet Word of Support" tags="" position="950,1525" size="100,100">&lt;h2&gt;The porter catches Torren&#39;s eye, a flicker of gratitude in his weary gaze, a silent connection forged in shared suffering.&lt;/h2&gt;
-
- (set: $severin to it - 1, $court to it - 1, $jaro to it + 1, $tarek to it + 1)
+ (set: $severin to it + 1, $court to it + 1, $jaro to it - 1, $tarek to it - 1,  $fort to it + 1)
+ (set: $lastPassage to (passage:)&#39;s name)
  
-At the center sat Morvaine, Thrice-Scarred Hierophant of the Order of Severin. His skin bore the marks of ceremonial brands across his bare scalp, each scar threaded with black opal. He reclined on velvet cushions, one gaunt hand gripping an iron crozier, the other idly tracing a rosary of finger-bones. Around him gathered scarlet-robed hierarchs, laden with rings, reliquaries, and the cloying scent of attar meant to cover traces of old blood. They chanted litanies of self-denial, even as they surrounded themselves with gem-studded opulence.
-Behind them followed novices in plain cincture and linen—young, earnest, still believing in a sacred purpose. They marched in step, unaware of the records of bribes and tithes swelling Morvaine’s coffers or the dungeons hidden beneath his sanctuaries. The higher one rose in Severin, the more shadowed the paths became; innocence was stripped away layer by layer.
-The procession pressed forward, a tangible force of sanctioned harshness, pushing legionaries to the roadside. A single nod from Morvaine prompted an acolyte to lash a porter with greater force, a display of unchecked authority. Dust blended with incense; blood dotted the heated stone.
-The subtle nod Torren gave seemed to ripple quietly through the crowd, a small beacon of empathy amid the cruelty. The porter’s stifled cry was met with a brief, almost imperceptible softening in the eyes of a few nearby soldiers.
+(set: $notificationMessage to &quot;Jaro’s anger draws the Severin’s suspicion.&lt;br&gt;jaro +1&lt;br&gt;tarek +1&lt;br&gt;fort kezerak revolt +1 &lt;br&gt; loyalists +1&quot;)
+(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="7" name="Offer a Quiet Support." tags="" position="950,1525" size="100,100">&lt;h2&gt;Offer a Quiet Support.&lt;/h2&gt;
+
+Torren whispers the old words of mercy—a folk blessing, not the sanctioned liturgy. The porter looked up, surprised, before another lash struck him. But in that instant, something changed: The porter&#39;s shoulders straightened slightly, not in defiance but in quiet dignity. His next stifled cry carried less despair—not because the pain lessened, but because others cared. Maybe things could get better.
+
+Jaro, standing nearby, could not hide his fury. His fists clenched, jaw set, eyes burning with outrage at the cruelty before them. The emotion was raw, unguarded, and impossible to miss.
+
+A nearby soldier&#39;s jaw tightened; another blinked rapidly. The acolyte raised his whip again, then hesitated, unsettled by the change he couldn&#39;t name—and by the dangerous glint in Jaro’s eyes. Morvaine&#39;s fingers twitched on his crozier. The hierarchs&#39; chanting faltered for half a breath. The world didn&#39;t change—the cruelty continued—but for one fragile moment, the porter had stood taller. And several people had noticed.
+Not just the mercy, but the anger, too.
+
+
+(set: $severin to it -1, $court to it -1, $jaro to it +1, $tarek to it +1)
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;
+(set: $lastPassage to (passage:)&#39;s name)
+
+(set: $notificationMessage to &quot;Jaro’s anger draws the Severin’s suspicion +1&lt;br&gt; loyalists +1 &lt;br&gt;Severin -5&lt;br&gt;fort kezerak revolt +1&quot;)
+(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="8" name="Shield Jaro&#39;s Expression" tags="" position="1075,1525" size="100,100">&lt;h2&gt;Shield Jaro&#39;s Expression&lt;/h2&gt;
+
+Torren moved without thinking—a half-step to the right, putting himself between Jaro&#39;s furious expression and the passing hierarchs. His own face remained carefully blank even as his shoulder blocked Jaro&#39;s view of the procession.
+
+Jaro opened his mouth to protest, then froze as Torren&#39;s elbow pressed warningly against his ribs. A heartbeat passed. Two. The Severin acolytes walked by without glancing their way.
+
+A Severin acolyte glanced their way. Torren tilted his head slightly, adjusting his collar—the motion catching the acolyte’s attention. The moment passed.
+
+Then the color drained from Jaro’s face. He swallowed hard as he realized—his flash of anger could have easily drawn unwanted attention. The last thing the fort needed was the Severin’s watchful eyes turning their way. His jaw tightened, but now in embarrassment rather than rage.
+
+The porteur noticed. He gave an almost imperceptible nod—just enough to acknowledge Jaro’s anger on his behalf. Even slaves knew the cost of defiance, but that brief recognition was a small mercy, and the faintest hope that injustice wouldn’t last forever.
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="8" name="Shield Jaro&#39;s Expression" tags="" position="1050,1525" size="100,100">&lt;h2&gt;Torren subtly steps closer to Jaro, positioning himself to obscure Jaro&#39;s potentially rebellious expression from the passing hierarchs.&lt;/h2&gt;
-
- (set: $jaro to it + 1, $tarek to it + 1)
- 
-At the center sat Morvaine, Thrice-Scarred Hierophant of the Order of Severin. His skin bore the marks of ceremonial brands across his bare scalp, each scar threaded with black opal. He reclined on velvet cushions, one gaunt hand gripping an iron crozier, the other idly tracing a rosary of finger-bones. Around him gathered scarlet-robed hierarchs, laden with rings, reliquaries, and the cloying scent of attar meant to cover traces of old blood. They chanted litanies of self-denial, even as they surrounded themselves with gem-studded opulence.
-Behind them followed novices in plain cincture and linen—young, earnest, still believing in a sacred purpose. They marched in step, unaware of the records of bribes and tithes swelling Morvaine’s coffers or the dungeons hidden beneath his sanctuaries. The higher one rose in Severin, the more shadowed the paths became; innocence was stripped away layer by layer.
-The procession pressed forward, a tangible force of sanctioned harshness, pushing legionaries to the roadside. A single nod from Morvaine prompted an acolyte to lash a porter with greater force, a display of unchecked authority. Dust blended with incense; blood dotted the heated stone.
-Torren’s protective stance over Jaro seemed to steady the younger man, whose clenched jaw relaxed just enough to avoid drawing attention. The guardsmen around them tightened ranks, their discipline holding firm despite the provocation.
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;
 
 
-
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Restrained Indignation]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="9" name="Restrained Indignation" tags="" position="950,1625" size="100,100">&lt;h2&gt;Restrained Indignation&lt;/h2&gt;
+(set: $jaro to it +1, $tarek to it +1)
+(set: $lastPassage to (passage:)&#39;s name)
+(set: $notificationMessage to &quot;Tarek notes Torren’s quick thinking.&lt;br&gt;jaro +1&lt;br&gt;tarek +1&lt;br&gt;fort kezerak revolt +1 &lt;br&gt; loyalists +1&quot;)
+(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="9" name="Restrained Indignation" tags="" position="950,1625" size="100,100">&lt;h2&gt;Restrained Indignation&lt;/h2&gt;
 Torren felt his gauntlets strain as his fists tightened. Around him, other guardsmen fixed their eyes with the same contained loathing—men and women who would lay down their lives for a comrade, yet stood powerless to act, forced to bury their anger. They had long known the Order of Severin as tax collectors, mediators of disputes, enforcers of the Emperor’s will. But they had not seen this before—the unmasked cruelty, the stark hypocrisy, the overwhelming power laid bare. It wasn’t that they were unaware such things existed; it was the brazenness, presented as righteous and just, that turned their stomachs. It stood against everything they valued: the honor of service, the safeguarding of the vulnerable, the quiet fortitude of duty. To intervene would mark a soldier as heretic and traitor in one fatal move.
 Jaro’s voice came low, a rough whisper. “They name that sanctity.”
 Tarek’s jaw clenched, as if grinding stone. “Sanctity doesn’t draw blood from servants for their stride.”
@@ -852,7 +877,7 @@ Jaro, usually quick with a remark, held his tongue, staring forward. The truth l
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 2  The Diplomat: Shadows of Alliances]]&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="10" name="Chapter 2  The Diplomat: Shadows of Alliances" tags="" position="950,1725" size="100,100">&lt;h2&gt;Chapter 2  The Diplomat: Shadows of Alliances&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="10" name="Chapter 2  The Diplomat: Shadows of Alliances" tags="" position="950,1725" size="100,100">&lt;h2&gt;Chapter 2  The Diplomat: Shadows of Alliances&lt;/h2&gt;
 From the observation tier above Fort Kezarak’s arena, Councillor Valerius of House Kren leaned against a colonnade, his silk robes catching the faint breeze. His half-lidded eyes traced three exits: the shadowed servant’s stair…, the ambassador’s gate where bribes flowed freely…, and the crumbling aqueduct he’d mapped alone. A man didn’t survive decades as a diplomat between warring houses without learning that exits mattered more than entrances. Valerius knew the real hazard wasn’t in delivering messages, but in being the one who knew too much—. Words could be twisted, alliances could shift, but a spymaster found dead in an alley sent a message even the densest lord could read—or arrange. He preferred to avoid becoming a footnote in history.
 His senses parsed the air: citrus from the fruit-sellers (expected…), bitter almond on the eastern envoy’s sleeve (intriguing…?), and the faintest trace of wyvern venom on the cupbearer’s gloves (actionable…!). Even as his mind listed threats, his body instinctively shifted, angling his stronger side towards the nearest exit. In the court’s deadly politics, even standing still was a strategy.
 
@@ -930,7 +955,7 @@ Now, Valerius faced a choice: should he escalate the tension, pressing the advan
 
 [[escalates tension]]
 [[holds back]]
-
+(set: $lastPassage to (passage:)&#39;s name)
 
 </tw-passagedata><tw-passagedata pid="11" name="Chapter 3  Vestergaard: Thoughts before the fight" tags="" position="850,2175" size="100,100">&lt;h2&gt;Chapter 3  Vestergaard: Thoughts before the fight&lt;/h2&gt;
 Siania’s smile shone below. To the enraptured crowd, it was a lover’s glance, warm and teasing; but to Vestergaard, it was a carefully guarded mask—beautiful, yet unreadable. Was it affection or duty? Even his trained eye found no answer. His house had honed him to unmask lies, to pierce the court’s endless deceptions, yet Siania-tempered by exile-remained beyond his reach. Was she playing her part with flawless precision, or did something genuine flicker beneath, a spark meant for him alone? The uncertainty gnawed at him, —a riddle he couldn’t solve. Her fleeting upward glance- a greeting, warning, or mere theater? —slipped through his grasp like sand.
@@ -963,7 +988,7 @@ Siania’s blade arced once more, its celestial glow flaring brighter, her magic
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;) [[Author notes: Valerious]]&lt;/span&gt;
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 4   Siania: The Blade’s Edge]]&lt;/span&gt;
-
+(set: $lastPassage to (passage:)&#39;s name)
 </tw-passagedata><tw-passagedata pid="12" name="Chapter 4   Siania: The Blade’s Edge" tags="" position="550,3100" size="100,100">&lt;h2&gt;Chapter 4   Siania: The Blade’s Edge&lt;/h2&gt;
 The Passing demanded two trials. First, a martial display—a showcase of steel and, in Siania’s case, a rare hint of untrained magic that captivated the crowd and signaled her potential to the court. Next came the test of skill: a duel with wooden blades against a carefully matched peer. This tradition ensured every candidate proved their ability fairly, with opponents chosen from the same rank and discipline. True parity was impossible, but overcoming those differences was part of the challenge.
 Siania, known for her accuracy rather than strength, faced another tracker from House Kren. The crowd’s cheers still echoed as she stepped onto the sand, trading steel for wood. The true measure awaited, promising an intriguing contest.
@@ -1007,7 +1032,7 @@ How will Siania overcome her opponent
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Option A: Try to Outlast the Tracker]]&lt;/span&gt;
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Option B: Win with Precision and Honor]]&lt;/span&gt;
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Option C: Blind Him with Sand]]&lt;/span&gt;
-
+(set: $lastPassage to (passage:)&#39;s name)
 
 
 
@@ -1062,7 +1087,7 @@ Her father’s gaze burned. What do you see, Father? A weapon? A stranger? The c
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;) [[Chapter 5   The Emperor: The Great Game]]&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="14" name="Option C: Blind Him with Sand" tags="" position="675,3250" size="100,100">&lt;h2&gt;Option C: Blind Him with Sand&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="14" name="Option C: Blind Him with Sand" tags="" position="675,3250" size="100,100">&lt;h2&gt;Option C: Blind Him with Sand&lt;/h2&gt;
 The tracker advanced, blade raised for the formal finishing strike. Siania’s hand darted for her sword, but instead of scrambling for it outright, she feinted a desperate lunge—her body language selling panic, her eyes wide, her stance off-balance. The tracker, reading her as beaten—overcommitted—stepped in to finish her.
 
 At the last instant, Siania bent low, scooping a handful of sand from the arena floor and flinging it into the tracker’s eyes. He roared, clutching at his face, blinded and disoriented. Tears streamed down his face, mixing with the sand, making it even harder to see.
@@ -1116,7 +1141,7 @@ As she left the arena, her footprints marked the sand behind her, with the Solun
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[EMPEROR DISPLEASED]]&lt;/span&gt;
-
+(set: $lastPassage to (passage:)&#39;s name)
 </tw-passagedata><tw-passagedata pid="15" name="Option A: Try to Outlast the Tracker" tags="" position="550,3250" size="100,100">&lt;h2&gt;&lt;/h2&gt;
 The tracker pressed in relentlessly, his blade a steady, grinding force against Siania’s defenses. She fought with measured strikes, aiming for precision over power, hoping to outlast him. But the tactic betrayed her—her attacks, though accurate, lacked the strength to break his guard or slow his advance.
 
@@ -1167,7 +1192,7 @@ As she left the arena, her footprints marked the sand behind her, with the Solun
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[EMPEROR DISPLEASED]]&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="16" name="EMPEROR DISPLEASED" tags="" position="650,3400" size="100,100">&lt;h2&gt;EMPEROR DISPLEASED&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="16" name="EMPEROR DISPLEASED" tags="" position="650,3400" size="100,100">&lt;h2&gt;EMPEROR DISPLEASED&lt;/h2&gt;
 The Emperor, Tharion Lucius IV, lingered in the shadowed colonnade, his obsidian crown a void against the Solunara’s dying glow. Below, the sand still carried the sting of his daughter’s misstep. Outwardly, he was granite-still, but within, disappointment and calculation warred in silence.
 Siania’s performance—whether she had been ground down by her opponent or had stooped to dishonor—was a blow to the legend of imperial steel he had hoped to parade before the court. Yet as the echoes of the crowd’s uncertain murmurs faded, Tharion’s mind moved swiftly, seeking advantage in the ashes of expectation. A weaker Siania, after all, was a smaller banner for House Ne’Tiriana’s loyalists to rally behind. Those who whispered of a “true queen” would find less fire in today’s outcome. Still, the cost was real: Fort Kezarak’s reputation was tarnished, its overseers exposed for producing a pupil who lacked either stamina or honor. Dishonor, too, stained the Lucius line—already, he could sense whispers darting behind fans and wine-cups, the court’s appetite for scandal whetted.
 His gaze swept the tiers, reading the shifting tides of power in the smallest gestures. House Kren’s Councillor Valerius of House Kren , sat rigid, disappointment leaking through a brittle smile; Kren had hoped to crown Siania and support the true imperial bloodline of House Ne’ Tiriania. Lady Vestergaard, by contrast, inclined her head in polite applause, but the upward curl at one corner of her mouth betrayed a quiet satisfaction. A tarnished princess would be easier to isolate, her son’s candidacy gleaming brighter by comparison. The Order of Severin, who prized strict adherence to ritual combat, shifted uneasily; Morvane’s lips tightened behind his bone medallion. Allegiant officers exchanged wary glances, discipline broken in the sand spelling worries for any future campaign. Across the pit, a clutch of minor princes whispered, scenting weakness.
@@ -1190,7 +1215,7 @@ She knew her performance would shape Talin’s politics, her marriage a lever fo
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 6  A Cage of Blood and Memory]]&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="17" name="Chapter 5   The Emperor: The Great Game" tags="" position="425,3400" size="100,100">&lt;h2&gt;Chapter 5   The Emperor: The Great Game&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="17" name="Chapter 5   The Emperor: The Great Game" tags="" position="425,3400" size="100,100">&lt;h2&gt;Chapter 5   The Emperor: The Great Game&lt;/h2&gt;
 The Emperor, Tharion Lucius IV, stood in the shadowed colonnade, his obsidian crown a void against the Solunara’s dying glow. Below, Siania disarmed her opponent with lethal precision, her movements as inevitable as the tides. Fort Kezarak, unyielding since the Great Undoing, was no place for weakness. He allowed a flicker of satisfaction—his daughter, honed by exile and relentless training, fought better than well. 
 From the observation deck, his gaze swept the court below, a tableau of calculated grace. Fans fluttered with practiced elegance. Laughter rose at precise intervals, timed to please the imperial ear. Courtiers drifted in shifting clusters, their colors chosen to flatter, not provoke, their postures open yet rehearsed. Every smile, every tilt of the head, was a performance, masking the ambition that simmered beneath. Yet Tharion’s sharp eyes caught the fissures: a glance held too long, a jaw’s subtle clench, a laugh delayed by a heartbeat. Masters of deception, the courtiers played their parts, but their masks were not flawless. Loyalty was a guise, power won by those who hid their hunger best. 
 
@@ -1209,7 +1234,7 @@ Emperor, Tharion Lucius IV, stood in the shadowed colonnade, his obsidian crown 
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 6  A Cage of Blood and Memory]]&lt;/span&gt;
-
+(set: $lastPassage to (passage:)&#39;s name)
 
 </tw-passagedata><tw-passagedata pid="18" name="Chapter 6  A Cage of Blood and Memory" tags="" position="525,3550" size="100,100">&lt;h2&gt;Chapter 6  A Cage of Blood and Memory&lt;/h2&gt;
 By nightfall, the arena’s tension had bled into the great hall. Torchlight danced across marble pillars and the gilded crests of Talin’s ancient houses. Nobles clustered at long tables—their silks and jewels marking out alliances and rivalries as clearly as any battle standard.
@@ -1230,7 +1255,7 @@ As the feast wore on, Siania finished her meal, set her cutlery together, and qu
 
 
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 7   Vestergaard balcony]]&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="19" name="Chapter 7   Vestergaard balcony" tags="" position="525,3675" size="100,100">&lt;h2&gt;Chapter 7   Vestergaard balcony&lt;/h2&gt;The evening had dragged with the usual patterns of etiquette, but she slipped out in an appropriate lull. Vestergaard found her on the balcony, standing statuesque—curved and tempered by all she’d endured—watching the fort and training grounds stretch out below, the desert beyond fading into purple hills and a pink sky. The training grounds were quiet now, shadows long and blue in the dusk, but she could still see the scars in the sand—marks left by a thousand drills, a thousand falls and rises. Her scars, too, though hidden beneath silk, ached with memory.
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="19" name="Chapter 7   Vestergaard balcony" tags="" position="525,3675" size="100,100">&lt;h2&gt;Chapter 7   Vestergaard balcony&lt;/h2&gt;The evening had dragged with the usual patterns of etiquette, but she slipped out in an appropriate lull. Vestergaard found her on the balcony, standing statuesque—curved and tempered by all she’d endured—watching the fort and training grounds stretch out below, the desert beyond fading into purple hills and a pink sky. The training grounds were quiet now, shadows long and blue in the dusk, but she could still see the scars in the sand—marks left by a thousand drills, a thousand falls and rises. Her scars, too, though hidden beneath silk, ached with memory.
 This place was as much a part of her as her own heartbeat: the clang of swords at dawn, the taste of dust, the voices—some gone, some still echoing in the barracks at night. Beyond, the dunes further to the north—Talin, home of her childhood—beckoned with a bittersweet pull. With the king’s arrival, she had hoped to discuss her return, but she had been unable. Courtiers and advisors always clustered around him, blocking her path, and she sensed he allowed it. He would be gone again within the week; as always, their conversations never found time to begin.
 The weight of missed chances pressed against her, and for a moment she let herself drift, searching for solace in the world beyond the stone rail. She looked up at the vast sky arching over the barren land—a striking contrast to the darkness of her gown. She wondered about her place within it all—both she and the sky still and waiting, changing in ways she could not yet name, each moving toward an uncertain horizon.
 A quiet step behind her—the familiar cadence of Vestergaard’s approach—broke the spell of her solitude. She felt the tension in her shoulders ease, her awareness of him drawing her back from the edge of her thoughts.
@@ -1251,7 +1276,7 @@ She drank—the wine sweet on her tongue. For a moment, everything felt right: t
 Siania tilted her head—her smile soft but unwavering. “Maybe. Or maybe I just see what’s worth trusting.” Her words hung between them, a quiet lesson in the art of faith—one she hoped he might learn.
 
 
-&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 8 Secrets of Stone]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="Chapter 8 Secrets of Stone" tags="" position="525,3800" size="100,100">&lt;h2&gt;Chapter 8 Secrets of Stone&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 8 Secrets of Stone]]&lt;/span&gt; (set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="20" name="Chapter 8 Secrets of Stone" tags="" position="525,3800" size="100,100">&lt;h2&gt;Chapter 8 Secrets of Stone&lt;/h2&gt;
 The wine’s sweetness still lingered on Siania’s tongue as she retreated to her chambers. Laughter had faded, replaced by the fire’s soft crackle and the gentle weight of her circlet pressing against her brow.
 Before the mirror, she brushed her hair in slow, mechanical strokes. Her black silk gown lay discarded on the floor, a shed skin.
 These walls knew her secrets better than anyone. Not the princess they saw now, but the ghost-child who had grown up here, left to her own devices. The ancient palace-fortress was her world: hidden corridors, secret stairwells, doors disguised as carvings. There were crawl spaces behind hearths, tunnels opening into shadowy alcoves. Forgotten chambers and tangled gardens offered places to escape and move unseen.
@@ -1266,7 +1291,8 @@ She slipped into the secret corridors. The cool stone pressed close, the hush of
 
 
 
-&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 9 The Breaking Point]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="21" name="Chapter 9 The Breaking Point" tags="" position="525,3925" size="100,100">&lt;h2&gt;Chapter 9 The Breaking Point&lt;/h2&gt;Siania pressed her eye to the hidden peephole in the palace’s cold stone wall, the secret passage known only to her. She wasn’t alone—not with him on the other side. The glimpse of Vestergaard comforted her, but tonight, comfort wasn’t enough. She needed reassurance, something—anything—to quiet the doubts that lingered despite all the times she’d watched him before.
+&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 9 The Breaking Point]]&lt;/span&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="21" name="Chapter 9 The Breaking Point" tags="" position="525,3925" size="100,100">&lt;h2&gt;Chapter 9 The Breaking Point&lt;/h2&gt;Siania pressed her eye to the hidden peephole in the palace’s cold stone wall, the secret passage known only to her. She wasn’t alone—not with him on the other side. The glimpse of Vestergaard comforted her, but tonight, comfort wasn’t enough. She needed reassurance, something—anything—to quiet the doubts that lingered despite all the times she’d watched him before.
 She had come here not out of idle curiosity, nor from any fault she’d found in him, but from a persistent need to understand the man she would soon marry. In a court shaped by intrigue and ambition—his family’s reputation for cunning was legendary—she could not help but wonder if he, too, wore a mask. Yet the more she watched, the more she sensed a difference in him, a quiet authenticity that brought her solace. Each secret visit was less a search for evidence of wrongdoing and more a hopeful attempt to glimpse the man behind the role she was expected to accept.
 Often, she found him pacing the room, lost in thought, or bent over his desk, annotating books in the elegant script she had come to recognize. These volumes—later given to her—were filled with his insights and private jokes meant only for her, each margin note a window into his mind. She cherished those gifts, treasuring the intimacy of his words. She loved watching him pause mid-sentence, a smile tugging at his lips or a quiet laugh escaping as he crafted a note to amuse her. Sometimes, he’d catch himself after an unintended remark and turn to his scribe, Eli, whose gentle teasing and kind smile would smooth the moment, revealing not only Vestergaard’s warmth and humor but also the respectful bond between them. In those unguarded glimpses—when he believed himself unobserved—Siania felt a tentative warmth toward him, and a growing hope for the world they were about to share.
 
@@ -1358,7 +1384,8 @@ He held him until the last breath faded—his voice rough with regret—longing 
 “I swore I’d never become my mother,” he whispered, voice breaking. “But today—I prove myself a liar.”
 
 
-&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 10 Away]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="22" name="Chapter 10 Away" tags="" position="525,4050" size="100,100">&lt;h2&gt;Chapter 10 Away&lt;/h2&gt;Eli’s body lay still on the floor, the oil lamps casting stark shadows around his crumpled form.
+&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 10 Away]]&lt;/span&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="22" name="Chapter 10 Away" tags="" position="525,4050" size="100,100">&lt;h2&gt;Chapter 10 Away&lt;/h2&gt;Eli’s body lay still on the floor, the oil lamps casting stark shadows around his crumpled form.
 Siania turned away from the scene—her breath uneven — Vestergaard stood over his friend, his face torn between grief and resolve—.
 
 Eli’s confession had shattered something inside him. —Siania felt a pang for them both. She had been fond of Eli—he’d always greeted her with a warm smile, a ready joke, his kindness a rare comfort amid the harshness of her surroundings. Yet, in the end, it was Eli who had betrayed them—working with Vestergaard’s mother, setting events in motion that endangered Vestergaard, his house, Siania herself, and everyone who depended on them. Sympathy warred with sorrow and disappointment, but her own survival demanded focus.
@@ -1383,7 +1410,7 @@ She snapped the clasp shut, tucked the ring beneath her tunic, and straightened.
 
 
 
-&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 11 Escape from Kezerak]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="23" name="Chapter 11 Escape from Kezerak" tags="" position="525,4175" size="100,100">&lt;h2&gt;Chapter 11 Escape from Kezerak&lt;/h2&gt;Siannia pressed against the southwestern wall of Fort Kezerak, its jagged stone biting into her back. The sandstorm’s roar swallowed her ragged breaths, wind clawing at her cloak. She pulled it tight, shrinking her silhouette against the chaos. The ring on her finger flared warm and light, its etched symbols—qanat, battlefield, stepwell, temple—protected in her palm. Somewhere ahead, veiled by swirling grit and shadow, was the entrance to the qanat—an underground tunnel. Her only way out, if she could reach it.
+&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 11 Escape from Kezerak]]&lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="23" name="Chapter 11 Escape from Kezerak" tags="" position="525,4175" size="100,100">&lt;h2&gt;Chapter 11 Escape from Kezerak&lt;/h2&gt;Siannia pressed against the southwestern wall of Fort Kezerak, its jagged stone biting into her back. The sandstorm’s roar swallowed her ragged breaths, wind clawing at her cloak. She pulled it tight, shrinking her silhouette against the chaos. The ring on her finger flared warm and light, its etched symbols—qanat, battlefield, stepwell, temple—protected in her palm. Somewhere ahead, veiled by swirling grit and shadow, was the entrance to the qanat—an underground tunnel. Her only way out, if she could reach it.
 Each step was a gamble. The desert shifted underfoot, sand sliding over hidden air pockets. She hugged the wall, its rough surface her only anchor in the storm’s fury. The ramparts above flickered with movement—guards or drifting sand? She didn’t look up. Fear pressed at the edges of her mind, the doubts, uncertainties…., but she let her training take over, steadying her breath and narrowing her focus. Stay calm. Move.
 
 The outcropping loomed—a dark silhouette in the storm’s haze. It was her landmark, her entry to the qanat. She edged forward, testing each step. The wind shoved her sideways; her boots sank into loose sand.
@@ -1418,7 +1445,7 @@ She had about eight bells before her disappearance was noticed. The darkness ahe
 
 
 
-&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 12: Night’s Cover]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="24" name="Chapter 12: Night’s Cover" tags="" position="525,4300" size="100,100">&lt;h2&gt;Chapter 12: Night’s Cover&lt;/h2&gt;With a groan muffled against her cloak, she pushed herself up. Every muscle protested. For the past several days, she had been moving ever deeper into the desert, repeating the same pattern: crafting a scrapped bed to form a barrier against the sun, draping her cloak over shrubs to create shelter. By late afternoon, she would cook over a low fire, extinguishing it before evening, when its embers might be visible. Then, as dusk fell, she would pack up and start moving again.
+&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 12: Night’s Cover]]&lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="24" name="Chapter 12: Night’s Cover" tags="" position="525,4300" size="100,100">&lt;h2&gt;Chapter 12: Night’s Cover&lt;/h2&gt;With a groan muffled against her cloak, she pushed herself up. Every muscle protested. For the past several days, she had been moving ever deeper into the desert, repeating the same pattern: crafting a scrapped bed to form a barrier against the sun, draping her cloak over shrubs to create shelter. By late afternoon, she would cook over a low fire, extinguishing it before evening, when its embers might be visible. Then, as dusk fell, she would pack up and start moving again.
 She reached for the cloak, its coarse weave gritty under her fingers, heavy with a day’s worth of sand and heat. Methodically, she shook it out, watching the fine grains cascade like pale water in the fading light. Her hands, raw from her frantic clawing in the sinkhole, trembled slightly as she ran them over the familiar fabric. She flipped it over. The black side felt cooler, almost slick, absorbing the deepening shadows as she wrapped it around herself and pulled the deep hood low over her face.
 Concealment. Protection. The promise of night’s cover.
 She checked the ring. The etched symbols seemed sharper in the twilight, the arrow towards the battlefield ridge unwavering. Overhead, the first brave stars pricked the violet sky—the Scorpion’s Tail, the Steadfast Sisters, old friends for navigation. She triangulated her position against the ring’s guidance and the celestial map, plotting the night’s path: north, always north, skirting the treacherous soft sand near the dry riverbed she’d glimpsed before sheltering. The ridge was her lifeline, promising the oasis—and perhaps, answers about her mother’s ring and the path ahead.
@@ -1427,7 +1454,7 @@ No hoofbeats. No shouts. Only the desert’s own breath. For now.
 
 
 
-&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 13 The Chase Begins: Signs and Shadows]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="25" name="Chapter 13 The Chase Begins: Signs and Shadows" tags="" position="525,4425" size="100,100">&lt;h2&gt;Chapter 13 The Chase Begins: Signs and Shadows&lt;/h2&gt;The moon, a pale sliver, cast the world in shades of silver and ink. Siannia moved like one of the desert’s own creatures—silent, deliberate, exploiting every contour of the land. Her boots found the hardest earth, avoiding patches of silt that would hold her prints like accusations. She hugged the lee of rock formations, a shadow among shadows, her dark cloak merging with the night. The wind, now blowing steadily from the south, was her ally, scouring the sand behind her, erasing the faint traces she couldn’t avoid.
+&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 13 The Chase Begins: Signs and Shadows]]&lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="25" name="Chapter 13 The Chase Begins: Signs and Shadows" tags="" position="525,4425" size="100,100">&lt;h2&gt;Chapter 13 The Chase Begins: Signs and Shadows&lt;/h2&gt;The moon, a pale sliver, cast the world in shades of silver and ink. Siannia moved like one of the desert’s own creatures—silent, deliberate, exploiting every contour of the land. Her boots found the hardest earth, avoiding patches of silt that would hold her prints like accusations. She hugged the lee of rock formations, a shadow among shadows, her dark cloak merging with the night. The wind, now blowing steadily from the south, was her ally, scouring the sand behind her, erasing the faint traces she couldn’t avoid.
 Her mind worked as hard as her legs, engaged in active anti-tracking. She spotted a trail of jackrabbit tracks weaving away from the cracked bed of a long-dead river. Without hesitation, she stepped into the deeper prints, letting the desert’s own inhabitants mask her passage. In a patch of softer sand near a cluster of sage, she deliberately veered east for twenty paces, leaving clear tracks, before carefully backtracking onto sun-baked stone and resuming her true northern course. A misdirection only a tracker of Vestergaard’s caliber might notice—and pause to question.
 But her strategy went deeper than footprints. Near a weathered outcrop that hinted at a possible water source below, she knelt. Her fingers, still tender, found tough stalks of desert grass. With deliberate care, she wove them into a specific knot—the same clumsy, earnest knot Vestergaard had taught her during an early chaperoned meeting, fumbling with a blade of grass to break an uncomfortable silence. She tucked it into a crevice on the leeward side. Farther on, on a flat stone smoothed by ancient winds, she used a sharp rock to scratch a spiral—echoing the pattern he’d drawn in the dust during a formal dinner, his finger brushing hers as he explained it symbolized enduring hope. Each sign was a silent plea, a barb of memory: I remember. I regret. I endure. She hoped they would whisper doubt into his certainty, slow his relentless pursuit. Make him question why he chases me. Duty? Or something more?
 She rationed her water, the metallic taste sharp on her tongue. Hunger gnawed, a persistent distraction she pushed aside—there would be time later in the morning for her sling. Speed and stealth warred within her. She needed distance, but haste could betray her. She navigated by the stars, their cold light her compass, the ring’s steady warmth her confirmation. The dunes rose before her, great waves of shadowed sand. Here, she knew, the wind would be her greatest ally, smoothing her passage within minutes.
@@ -1444,7 +1471,7 @@ She didn’t answer. Instead, she plunged into the canyon’s waiting shadows, l
 
 
 
-&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 14 Confrontation in Diplomatic Residence, Fort Kethian]]&lt;/span&gt;
+&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Chapter 14 Confrontation in Diplomatic Residence, Fort Kethian]]&lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)
 </tw-passagedata><tw-passagedata pid="26" name="Chapter 14 Confrontation in Diplomatic Residence, Fort Kethian" tags="" position="525,4550" size="100,100">&lt;h2&gt;Chapter 14 Confrontation in Diplomatic Residence, Fort Kethian&lt;/h2&gt;A liveried attendant’s voice cut through the heavy air of Lady Elara Vestergaard’s suite:
  “Presenting Adjudicators Soren Halvane, charged with justice and stewardship, and Valeria Sorn, guardian of property and oath.”
 Two figures in the severe black robes of Severin’s Order stepped inside. The attendant held the carved doors ajar, his expression unreadable. The Adjudicators’ cold eyes swept the opulent room—rich tapestries, gleaming silver, arched windows framing the bustling courtyard—before they advanced with silent, commanding grace. The attendant lingered, a mute witness to the rising tension.
@@ -1480,7 +1507,7 @@ Her son’s absence, the scribe’s death, Siania’s disappearance, and the mis
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 15 Hunted Pursuer Revealed]] &lt;/span&gt;
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 15 Hunted Pursuer Fought off]] &lt;/span&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 15 Hunted Pursuer Fought off]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)
 </tw-passagedata><tw-passagedata pid="27" name="Chapter 15 Hunted Pursuer Revealed" tags="" position="400,4675" size="100,100">&lt;h2&gt;Chapter 15 Hunted Pursuer Revealed&lt;/h2&gt;She plunged into the canyon’s shadows, jagged rock walls rising like teeth around her. The air cooled instantly, smelling of dust and ancient stone. She moved swiftly, silently, seeking deeper cover—
 “Siania!”
 Her name, raw and ragged, cut through the canyon’s stillness from the entrance behind her. Vestergaard’s voice, taut with a desperation that bordered on pain. She froze, hand flying to her sword hilt. Not just duty. Something deeper, tearing at him, the panic of someone seeing their anchor slipping away. The sound unlocked a flood: the warmth of his hand on hers on the fort’s windswept balcony; the terrible finality in his eyes when  he&#39;d killed Eli—
@@ -1509,7 +1536,7 @@ She let him guide her, her mind already racing ahead. This was the gamble. Close
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 16 Hunted The Disappearance and Severin’s Panic]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="28" name="Chapter 15 Hunted Pursuer Fought off" tags="" position="650,4675" size="100,100">&lt;h2&gt;Chapter 15 Hunted Pursuer Fought off&lt;/h2&gt;She plunged into the canyon’s shadows, jagged rock walls rising like teeth around her. The air cooled instantly, smelling of dust and ancient stone. She moved swiftly, silently, seeking deeper cover—
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 16 Hunted The Disappearance and Severin’s Panic]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="28" name="Chapter 15 Hunted Pursuer Fought off" tags="" position="650,4675" size="100,100">&lt;h2&gt;Chapter 15 Hunted Pursuer Fought off&lt;/h2&gt;She plunged into the canyon’s shadows, jagged rock walls rising like teeth around her. The air cooled instantly, smelling of dust and ancient stone. She moved swiftly, silently, seeking deeper cover—
 
 “Siania!”
 
@@ -1560,7 +1587,7 @@ Hyrach morvaine leader of the order of severin looked south from his tower, the 
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 17 Shared Captivity &amp; Acknowledging the Trap]] &lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="30" name="Chapter 17 Shared Captivity &amp; Acknowledging the Trap" tags="" position="425,4925" size="100,100">&lt;h2&gt;Chapter 17 Shared Captivity &amp; Acknowledging the Trap&lt;/h2&gt;The fire crackled, a defiant island of warmth and light in the vast, cooling desert. Embers spiraled upwards, swallowed by the deepening indigo sky pricked with the first defiant stars. They sat opposite each other, the flames painting shifting patterns on their faces. Vestergaard hadn’t loosened his vigilant posture; his gaze constantly scanned the perimeter beyond the firelight, and always returned to her, waiting for her to bolt, his hand resting near his sword hilt. Siania sat cross-legged, seemingly relaxed, but her eyes, reflecting the flames, held a watchful intensity. The silence stretched, punctuated only by the fire’s hiss and the distant cry of a night-hunting bird.
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="30" name="Chapter 17 Shared Captivity &amp; Acknowledging the Trap" tags="" position="425,4925" size="100,100">&lt;h2&gt;Chapter 17 Shared Captivity &amp; Acknowledging the Trap&lt;/h2&gt;The fire crackled, a defiant island of warmth and light in the vast, cooling desert. Embers spiraled upwards, swallowed by the deepening indigo sky pricked with the first defiant stars. They sat opposite each other, the flames painting shifting patterns on their faces. Vestergaard hadn’t loosened his vigilant posture; his gaze constantly scanned the perimeter beyond the firelight, and always returned to her, waiting for her to bolt, his hand resting near his sword hilt. Siania sat cross-legged, seemingly relaxed, but her eyes, reflecting the flames, held a watchful intensity. The silence stretched, punctuated only by the fire’s hiss and the distant cry of a night-hunting bird.
 Siania broke it with a whisper. &quot;I know about the clause, Vestergaard.&quot;
 His head snapped towards her, a flicker of alarm in his eyes before they shuttered. &quot;Clause?&quot;
 &quot;Don&#39;t,&quot; she said, the single word heavy with exhaustion and disillusionment. &quot;Don&#39;t insult us both. &#39;Heirs of the lord&#39;s body.&#39; Eli&#39;s handiwork, your mothers plan. Signed and sealed, ready for my marriage and blood to seal your ascension... or your child&#39;s, under your &#39;interim regency&#39;.&quot; She let the ugly implication hang – the child dead, the throne his mother&#39;s prize through him. &quot;That&#39;s why I ran. Not just from a cage, but from my own execution warrant. And yours.&quot;
@@ -1595,7 +1622,7 @@ Siania had planted the seeds – the trap acknowledged, the weapon identified, t
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 17 Storms embrace]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="31" name="Chapter 17 Storms embrace" tags="" position="425,5050" size="100,100">&lt;h2&gt;Chapter 17 Storms embrace&lt;/h2&gt;The desert’s cruelty sharpened with each mile. They moved in pragmatic silence—Siania setting wire-thin snares in crevices where desert hares might scurry, Vestergaard scanning the horizon for the telltale twist of hardy plants that promised groundwater. Survival was their temporary truce, the pace deliberately slowed by the heavy weight of doubts and unspoken questions hanging between them like the relentless sun. Every step south felt heavier for Vestergaard, the fortress still a weeks march a looming threat but the necessary goal.
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 17 Storms embrace]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="31" name="Chapter 17 Storms embrace" tags="" position="425,5050" size="100,100">&lt;h2&gt;Chapter 17 Storms embrace&lt;/h2&gt;The desert’s cruelty sharpened with each mile. They moved in pragmatic silence—Siania setting wire-thin snares in crevices where desert hares might scurry, Vestergaard scanning the horizon for the telltale twist of hardy plants that promised groundwater. Survival was their temporary truce, the pace deliberately slowed by the heavy weight of doubts and unspoken questions hanging between them like the relentless sun. Every step south felt heavier for Vestergaard, the fortress still a weeks march a looming threat but the necessary goal.
 
 Shelter is tiny A wall of ochre dust swallowed the horizon, howling like the dead. They scrambled into the sandstone overhang they’d hastily prepared before the worst hit, the air thickening with grit. As the fury descended, Vestergaard instinctively pulled her back against his chest, enveloping her in the circle of his legs. Her long hair cascaded over her shoulder, strands catching on his stubble, the heat of her body seeping into his like desert sun on stone. Her neck was inches from his lips, and he could feel every expansion of her ribs against his forearm with each breath. He held her firmly, one arm wrapped protectively across her torso, the other gripping his sword hilt—knuckles white not from fear of the storm, but from the suffocating proximity, the terrifying vulnerability of needing her trust, and the crushing guilt that he may have already failed her irreparably. Would she flee now into the storm? The question gnawed at him, his forearm tensing reflexively around her ribs. Why isn’t she fighting me, for all these days the’d been walking back? The intimacy was startling—as close as he’d ever been to a woman he was undeniably drawn to. The strong, her heat against him was an anchor he clung to.
 
@@ -1620,7 +1647,7 @@ His hand turned beneath hers, fingers lacing through hers in a silent, desperate
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 18 Firelight and the White Swan]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="32" name="Chapter 18 Firelight and the White Swan" tags="" position="425,5175" size="100,100">&lt;h2&gt;Chapter 18 Firelight and the White Swan&lt;/h2&gt;Later, under an early dusk sky, they huddled near a meager fire (embers banked low in a stone trench, smoke cunningly dissipated). The charged intimacy of the storm shelter was replaced by a cautious, watchful distance, yet the connection forged in the grit lingered. Siania drew out the white swan pendant, its onyx wings and pearl body catching the dying light. Vestergaard flinched, not as if burned, but as if struck by a ghost – the ghost of his own fragile hope, now intertwined with the memory of holding her close and the crushing weight of his duty to take her back.
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 18 Firelight and the White Swan]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="32" name="Chapter 18 Firelight and the White Swan" tags="" position="425,5175" size="100,100">&lt;h2&gt;Chapter 18 Firelight and the White Swan&lt;/h2&gt;Later, under an early dusk sky, they huddled near a meager fire (embers banked low in a stone trench, smoke cunningly dissipated). The charged intimacy of the storm shelter was replaced by a cautious, watchful distance, yet the connection forged in the grit lingered. Siania drew out the white swan pendant, its onyx wings and pearl body catching the dying light. Vestergaard flinched, not as if burned, but as if struck by a ghost – the ghost of his own fragile hope, now intertwined with the memory of holding her close and the crushing weight of his duty to take her back.
 
 Siania (Fist clenching around the pendant, edges biting – mirroring his pain. Voice fierce, cutting the night:)
  &quot;You rebuild by taking the symbol back. By proving her corruption didn&#39;t kill the spark that birthed it!&quot; Firelight blazed in her eyes. &quot;Leverage is here, Darion. The truth is your weapon. That clause is proof she colludes with Severin to murder the Emperor&#39;s daughter and ultimately, the Emperor himself! Proof she perverted your promise and your father&#39;s legacy into a knife!&quot;
@@ -1662,7 +1689,7 @@ Order Severin under Hyrach’s command mobilizing, the Emperor’s reach tighten
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 19 The Scorpion Hunt]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="33" name="Chapter 19 The Scorpion Hunt" tags="" position="425,5300" size="100,100">&lt;h2&gt;Chapter 19 The Scorpion Hunt&lt;/h2&gt;Vestergaard and Siania moved cautiously across the shifting dunes, eyes scanning the desolate stretch for their quarry. He probed the sand ahead with the heavy, fire-hardened spear he had crafted the night before, using it as a walking staff. Siania moved with lighter, practiced steps, her hand resting near the worn hilt of her sword—her favored weapon for precision.
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 19 The Scorpion Hunt]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="33" name="Chapter 19 The Scorpion Hunt" tags="" position="425,5300" size="100,100">&lt;h2&gt;Chapter 19 The Scorpion Hunt&lt;/h2&gt;Vestergaard and Siania moved cautiously across the shifting dunes, eyes scanning the desolate stretch for their quarry. He probed the sand ahead with the heavy, fire-hardened spear he had crafted the night before, using it as a walking staff. Siania moved with lighter, practiced steps, her hand resting near the worn hilt of her sword—her favored weapon for precision.
 At the base of a ruined tower, Vestergaard&#39;s sharp tracker&#39;s eyes picked out the telltale signs: a vast depression where sand had been swept back in distinct, heavy sweeps, revealing a yawning opening far wider than a man’s outstretched arms. He recognized the scale of a predator&#39;s den instantly, the disturbed sand patterns confirming recent activity. His mind raced through possibilities – cave lion, great bear, perhaps even a drake burrow – but the sheer size in this desolate, shifting environment defied his experience. Nothing in his years hunting forests, hills, or even coastal dunes had prepared him for what this deep desert might hold.
 
 CHOICE: The Scorpion&#39;s Lair - Silent Freedom
@@ -1673,7 +1700,7 @@ Siania must decide whether to warn Vestergaard of the danger or allow him to wal
 [[Option A: Partnership]] Siania  warns Vestergaard, sharing her knowledge and risking her own safety to ensure their mutual survival.
 
 
-</tw-passagedata><tw-passagedata pid="34" name="Option A: Partnership" tags="" position="400,5450" size="100,100">&lt;h2&gt;Option A: Partnership&lt;/h2&gt;He took another step forward, leaning his weight onto the spear shaft as it sank into the sand, his tracker&#39;s instinct overriding caution in his eagerness to read the ground signs at the depression&#39;s edge. He needed a closer look, the sand&#39;s texture, the smell...
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="34" name="Option A: Partnership" tags="" position="400,5450" size="100,100">&lt;h2&gt;Option A: Partnership&lt;/h2&gt;He took another step forward, leaning his weight onto the spear shaft as it sank into the sand, his tracker&#39;s instinct overriding caution in his eagerness to read the ground signs at the depression&#39;s edge. He needed a closer look, the sand&#39;s texture, the smell...
 Siania’s hand shot out, iron-strong on his forearm. “Hold!” she hissed, pulling him back. “Ten paces. Any nearer, it senses your tread.”
 He froze.Ten paces? Vibration-sensing predators weren’t new—wolves, bears—but that range… implied monstrous sensitivity… Or size. His danger-honed senses screamed. Not just unfamiliar terrain; but an entirely new predator.
 Her sharp, wary eyes never left the den’s mouth. “Desert hunters feel movement through the earth long before they see or smell you. Step within ten paces, and it will burst forth—territorial, fast, and furious.” She gestured sharply backward. “Back. Slow, light steps.”
@@ -1703,8 +1730,11 @@ During the fight, as Vestergaard struggles to hold the scorpion&#39;s claw pinne
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Option B: Abandonment]] &lt;/span&gt;
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Option A: Aid]] &lt;/span&gt;
 
+(set: $lastPassage to (passage:)&#39;s name)
+</tw-passagedata><tw-passagedata pid="35" name="Option B: Silent Escape" tags="" position="675,5375" size="100,100">&lt;h2&gt;Option B: Silent Escape&lt;/h2&gt;
 
-</tw-passagedata><tw-passagedata pid="35" name="Option B: Silent Escape" tags="" position="675,5375" size="100,100">&lt;h2&gt;Option B: Silent Escape&lt;/h2&gt;</tw-passagedata><tw-passagedata pid="36" name="Option A: Aid" tags="" position="400,5575" size="100,100">&lt;h2&gt;Option A: Aid&lt;/h2&gt;
+
+</tw-passagedata><tw-passagedata pid="36" name="Option A: Aid" tags="" position="400,5575" size="100,100">&lt;h2&gt;Option A: Aid&lt;/h2&gt;
 &quot;Hold it!&quot; Siania yelled, seeing his struggle. She couldn&#39;t strike the other claw yet; the tail was lashing too wildly near Vestergaard. Instead, she darted forward, not for the joint, but for the creature&#39;s nearest cluster of eyes. Her sword flashed across the bulbous orbs. Ichor and vitreous fluid sprayed.
 The scorpion shrieked in a new register, a sound of pure agony and disorientation. Its thrashing became momentarily chaotic, the tail whipping blindly rather than with targeted fury. But the colossal pressure against Vestergaard&#39;s spear didn&#39;t relent. He gasped for air, lungs burning, every muscle fiber in his arms and back shrieking under the monstrous strain. Sweat stung his eyes. The spear shaft groaned like a living thing, vibrating violently in his clenched fists. Hold. Just hold.
 Siania sensed the beast’s pain and rage shifting, threatening to turn on her pinned companion. Without hesitation, she vaulted into its fractured line of sight, unleashing a raw, wordless scream that cut through the chaos. Her blade flicked out, carving a shallow, stinging line across the ruined cluster of eyes. The creature recoiled, its entire forebody jerking toward her, a guttural rasp vibrating through its fused carapace and drowning out Vestergaard’s ragged breaths. Its massive weight shifted, segments twisting awkwardly as it tried to reorient—blinded and furious—toward this new tormentor. The pressure on the spear eased just enough as the scorpion’s confusion left it momentarily vulnerable.
@@ -1775,7 +1805,9 @@ Siania gripped his hand. Her fingers were warm, strong—a warrior’s clasp sea
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[The Fire Scene: The Choice Forged]] &lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="37" name="Option B: Abandonment" tags="" position="675,5525" size="100,100">&lt;h2&gt;Option B: Abandonment&lt;/h2&gt;</tw-passagedata><tw-passagedata pid="38" name="The Fire Scene: The Choice Forged" tags="" position="400,5700" size="100,100">&lt;h2&gt;The Fire Scene: The Choice Forged&lt;/h2&gt;Siania watched the flames, the orange light dancing in her eyes. Her voice, when she spoke, was calm but resonated with the intensity of the fight they’d just won together. &quot;Out here, against that...&quot; She gestured towards the dark beyond the firelight. &quot;...We work. We survive.&quot; She looked directly at Vestergaard across the flames. &quot;As partners. Not bound by treachery, but by trust.&quot; Her gesture swept between them, encompassing the fire, the meat, the shared effort. &quot;This. This is what we could be. Strong. Free. Protecting each other because we choose to.&quot;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="37" name="Option B: Abandonment" tags="" position="675,5525" size="100,100">&lt;h2&gt;Option B: Abandonment&lt;/h2&gt;
+
+</tw-passagedata><tw-passagedata pid="38" name="The Fire Scene: The Choice Forged" tags="" position="400,5700" size="100,100">&lt;h2&gt;The Fire Scene: The Choice Forged&lt;/h2&gt;Siania watched the flames, the orange light dancing in her eyes. Her voice, when she spoke, was calm but resonated with the intensity of the fight they’d just won together. &quot;Out here, against that...&quot; She gestured towards the dark beyond the firelight. &quot;...We work. We survive.&quot; She looked directly at Vestergaard across the flames. &quot;As partners. Not bound by treachery, but by trust.&quot; Her gesture swept between them, encompassing the fire, the meat, the shared effort. &quot;This. This is what we could be. Strong. Free. Protecting each other because we choose to.&quot;
 Vestergaard stared into the fire, slowly cleaning ichor from his harvesting knife with sand. The fight had been brutal, efficient, and strangely... clean. No hidden agendas, no poisoned words—just clear purpose and shared strength. He finally met her gaze, his expression stripped of its usual guardedness, revealing the exhaustion and the dawning realization beneath. &quot;It felt...&quot; He searched for the word, his voice roughened by more than dust. &quot;...True. Like the principles my father taught—loyalty forged in action.&quot; He looked down at his sword, the steel reflecting the firelight like liquid gold. &quot;Not duty as a chain. Duty as... choice.&quot; The admission hung between them, fragile and immense.
 Vestergaard (staring at the scorpion’s corpse, voice taut with memory and tension opening up foreign to him):
  &quot;You think the clause is just your death warrant? It’s ours. My mother’s allies… the Order of Severin… they devour everything. First your name, then your lands, then your children.&quot; He crushed a clump of scarred earth. &quot;I watched the entire House Thorne hang because they refused a ‘benevolent union’ with a Severin puppet. Their ashes mixed into shrine mortar.&quot;
@@ -1809,7 +1841,7 @@ His hand fell away from his sword, accepting a heavier burden. The desert wind s
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 20: Dust and Divided Paths]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="39" name="Chapter 20: Dust and Divided Paths" tags="" position="400,5825" size="100,100">&lt;h2&gt;Chapter 20: Dust and Divided Paths&lt;/h2&gt;The fire’s embers hissed a dying protest as the wind flung grit against blackened stones. Vestergaard’s vow to fight eastward still hung in the charged air between them—a promise forged in the deceptive quiet of night. Now, dawn was a brutal reveal, stripping away any illusion. The trap was snapping shut.
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Chapter 20: Dust and Divided Paths]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="39" name="Chapter 20: Dust and Divided Paths" tags="" position="400,5825" size="100,100">&lt;h2&gt;Chapter 20: Dust and Divided Paths&lt;/h2&gt;The fire’s embers hissed a dying protest as the wind flung grit against blackened stones. Vestergaard’s vow to fight eastward still hung in the charged air between them—a promise forged in the deceptive quiet of night. Now, dawn was a brutal reveal, stripping away any illusion. The trap was snapping shut.
 
 Vestergaard spotted them first. His eyes, sharp and searching, picked out dark shapes cresting multiple dunes—primarily to the east, but spreading north and south as well. Against the bruised, pre-storm sky, they moved with lethal purpose: three distinct threads weaving through the sands. The pincer was closing, but not yet tight. They had minutes—perhaps less.
 
@@ -1865,7 +1897,7 @@ Leaving the howling madness, Siania drew her sword there was a way forward. She 
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 21 Whispers in Stone and Silk]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="40" name="Chapter 21 Whispers in Stone and Silk" tags="" position="400,5950" size="100,100">&lt;h2&gt;Chapter 21 Whispers in Stone and Silk&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 21 Whispers in Stone and Silk]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="40" name="Chapter 21 Whispers in Stone and Silk" tags="" position="400,5950" size="100,100">&lt;h2&gt;Chapter 21 Whispers in Stone and Silk&lt;/h2&gt;
 The silence of the catacombs was absolute, a suffocating blanket after the desert’s roaring fury. Dust motes, disturbed by Siania’s cautious steps, swirled lazily in the single shaft of ochre light piercing the narrow crevice behind her. The air hung thick and cool, heavy with the scent of wet stone and ancient decay, but beneath it all, a faint, earthy musk lingered—something primal, almost alive.
 Behind her, the khamsin raged like a distant beast, muffled but relentless, a reminder of the chaos she’d escaped and the peril Vestergaard now faced, shielded by her brothers-in-arms. Jaro. Tarek. Torren. Their names echoed in her mind, fragile threads of hope and fear tangled together. Keep him safe.
 Alone. The word echoed in the sudden quiet, a weight pressing down on her chest. Not loneliness, but the stark reality of her path. She was isolated, vulnerable, and burdened with a responsibility that felt heavier with every breath. Her hand tightened on the sword hilt, knuckles whitening. Steeled resolve. To find the oasis, to fulfill her mother’s legacy, to honor a dead queen’s wish. She inhaled deeply, the damp air filling her lungs, forcing calm. Survival first. Then answers.
@@ -1980,7 +2012,7 @@ Siania’s awe returned, tempered by wariness. Were these creatures truly allies
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 22 SpiderWorld]] &lt;/span&gt;
 
-</tw-passagedata><tw-passagedata pid="41" name="Chapter 22 SpiderWorld" tags="" position="400,6075" size="100,100">&lt;h2&gt;Chapter 22 SpiderWorld&lt;/h2&gt;The air cooled as the silver-tip led Siania deeper into the cultivated levels. The path narrowed past the Silk Galleries where webs formed dense barriers and defensive vines hung low. The drumming signal from the mushroom nodes intensified, a constant vibration in the stone underfoot
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="41" name="Chapter 22 SpiderWorld" tags="" position="400,6075" size="100,100">&lt;h2&gt;Chapter 22 SpiderWorld&lt;/h2&gt;The air cooled as the silver-tip led Siania deeper into the cultivated levels. The path narrowed past the Silk Galleries where webs formed dense barriers and defensive vines hung low. The drumming signal from the mushroom nodes intensified, a constant vibration in the stone underfoot
 Past the fortified Silk Galleries, the path narrowed, following a natural fault line draped in curtains of luminous lichen that pulsed with a slow, steady rhythm. Here, the spiders’ actions shifted focus. Instead of triggering broad defenses, they moved with pinpoint precision, targeting the path itself.
 
 Concealing the Trail: A smaller spider, its carapace gleaming like polished obsidian, scurried ahead. It paused where the path forked, one branch leading deeper down, the other winding towards a sheer drop partially veiled by hanging vines. With astonishing delicacy, it extended a forelimb and stroked the base of a cluster of broad, bioluminescent ferns flanking the dangerous path. A soft, complex trill, different from the urgent clicks used earlier, flowed from it. The ferns responded instantly. Their fronds, previously casting a soft blue light onto the treacherous route, dimmed rapidly, their glow receding like water draining from a basin. Simultaneously, the ferns subtly leaned inward, their fronds intertwining to further obscure the path’s entrance. Within moments, the dangerous fork vanished into near-total shadow, indistinguishable from the sheer rock face behind it. The safe path, however, remained softly illuminated by untouched lichen.
@@ -2010,7 +2042,7 @@ The grove’s silver light gleamed on its carapace, highlighting the terrible bu
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 23 The Nest Chamber: Whispers in Stone and Silk]] &lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="42" name="Chapter 23 The Nest Chamber: Whispers in Stone and Silk" tags="" position="400,6200" size="100,100">&lt;h2&gt;Chapter 23 The Nest Chamber: Whispers in Stone and Silk&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="42" name="Chapter 23 The Nest Chamber: Whispers in Stone and Silk" tags="" position="400,6200" size="100,100">&lt;h2&gt;Chapter 23 The Nest Chamber: Whispers in Stone and Silk&lt;/h2&gt;
 Spider and Plant Symbiosis Continues: Within the chamber, the spiders around Siania react instantly to the survivors’ presence, pressing flat against limestone, vanishing into light and shadow cast by glowing flora. Plants communicate with spiders—ferns tremble, colors deepen to warning gold, and dense banks shiver as if stirred by an invisible current, some folding inward to dim paths, making navigation harder for the Scarmarshals. Setup for Confrontation: The chapter ends with tension mounting as Errol, Vorik, and Kael close in, recovering from minor defensive triggers like pollen bursts. Siania, guided by the spiders’ subtle signals, prepares for a direct clash, having bought critical time through her melees, while the spiders’ passivity hinges on the unfolding actions, setting the stage for the next chapter.
 The muffled roar of the khamsin was a distant thunder beneath their feet as Siania and the spiders emerged from the passage into the vast, luminous expanse of the Nest Chamber. Limestone columns, ancient and immense, soared, draped in glowing moss and delicate, fan fungi n shifting veils of blue and green. Waterfalls of pale, luminescent almost snowdrop shaped fungi cascaded down the far walls like frozen tears. Everywhere, intricate silver webbing caught the ethereal light, weaving hypnotic, shifting patterns across the stone. The air held the scent of petrichor and sweet nectar, delicate radiant ferns uncurled softly. An enchanted place for these gentle farmers. Now invaded…
 The silver-tipped leader froze instantly, its powerful body rigid as stone. Siania felt the jolt of its alarm its angled body pointing towards an outcropping its body signalled. HUNTER. HERE. NOW. She snapped her gaze upwards, following the spider’s focus.
@@ -2077,7 +2109,7 @@ Key Snippet Highlighting Attributes: As flames licked the crumbling stone walls,
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 25: Final Desert Trek - Bonds Forged in Sand]] &lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="43" name="Chapter 25: Final Desert Trek - Bonds Forged in Sand" tags="" position="450,6350" size="100,100">&lt;h2&gt;Day 1: The Relentless Sun&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="43" name="Chapter 25: Final Desert Trek - Bonds Forged in Sand" tags="" position="450,6350" size="100,100">&lt;h2&gt;Day 1: The Relentless Sun&lt;/h2&gt;
 The sun was a merciless tyrant, beating down on Siania and her skittering companions, the Draethlyn. Each step was a battle against the heat, a calculation of energy spent versus distance gained. The oasis—Sanctuary Camp—remained a distant promise, its location etched on the ring’s hidden map, but the path to it felt endless.
 Siania paused, sweat stinging her eyes. &quot;Another day, another sand dune,&quot; she muttered, wiping her brow with the back of her hand. The horizon shimmered, a deceptive invitation to nowhere. She glanced at the ring, its filigree stars glinting mockingly in the harsh light. With painstaking care, she aligned the ring with a distant, uniquely shaped mesa, a landmark seared into her memory. A faint pulse of warmth against her skin was her reward, a confirmation that they were still on course. &quot;Alright, spiders, keep skittering. Oasis or bust.&quot;
 But even as she spoke, her thoughts drifted to Vestergaard. Was he alive? Had he reached Kren, or had Severin’s hunters caught him in the storm? The memory of his arms around her in the storm shelter, the way he’d chosen trust over duty, haunted her. She wanted to believe he was safe, that their parting had bought them both a chance. But the desert was full of ghosts, and hope was a fragile thing.
@@ -2148,7 +2180,7 @@ But then, she remembered Weaver’s gift, the shimmering piece of obsidian. She 
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 26 Discovery]] &lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="44" name="Chapter 26 Discovery" tags="" position="400,6500" size="100,100">&lt;h2&gt;Chapter 26 Discovery&lt;/h2&gt;After what felt like an eternity, a grim scene halted her at the crest of a dune—a small camp of desert slavers, rough and ruthless, holding captives in crude pens of thorny desert growth and tough cordage, their harsh laughter echoing across the sands. Siania’s heart clenched as she spotted her missing Draethlyn imprisoned, their furry bodies curled tight in distress, large expressive eyes wide with childlike terror, emitting soft, pitiful clicks as their legs trembled helplessly, showing no resistance—purely vulnerable and reliant on her for rescue.
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="44" name="Chapter 26 Discovery" tags="" position="400,6500" size="100,100">&lt;h2&gt;Chapter 26 Discovery&lt;/h2&gt;After what felt like an eternity, a grim scene halted her at the crest of a dune—a small camp of desert slavers, rough and ruthless, holding captives in crude pens of thorny desert growth and tough cordage, their harsh laughter echoing across the sands. Siania’s heart clenched as she spotted her missing Draethlyn imprisoned, their furry bodies curled tight in distress, large expressive eyes wide with childlike terror, emitting soft, pitiful clicks as their legs trembled helplessly, showing no resistance—purely vulnerable and reliant on her for rescue.
 
 Siania pressed herself flat against the dune, the coarse sand digging into her skin. Below, the slaver camp sprawled—a cluster of rough tents and makeshift pens, the air thick with the stench of unwashed bodies and fear. Her gaze swept over the scene, cataloging details: six visible slavers, two with crossbows positioned to cover the main approaches, one burly axeman leaning against a tent, three heavy skirmishers patrolling the perimeter, and a lighter-built runner, nervously pacing near the supplies. The layout of the camp centered around a fire pit where some beast roasted, greasy smoke curling into the late afternoon air. The smell was sharp and sour—rancid, really—an unmistakable sign of spoiled meat. Typical, she thought, for those who think the desert is just an empty place to scavenge. They don&#39;t respect it, so it bites them back. A belly full of bad meat was just the desert&#39;s way of weeding out the weak. Their size would have made this a brutal fight, but their arrogance and ineptitude meant they wouldn&#39;t be fighting at their full strength, though she was still outnumbered.
 Then she saw them.
@@ -2264,7 +2296,7 @@ The adrenaline faded, replaced by a giddy relief. Aryfis freed the Draethlyn, wh
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 27 The Camp]] &lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="45" name="Chapter 27 The Camp" tags="" position="400,6625" size="100,100">&lt;h2&gt;&lt;/h2&gt;They made their way back over the dunes, the desert suddenly feeling lighter. As they crested the last rise, the Draethlyn came into view—tangled in their own game, one rolling down a slope, another batting at the shiny trinket Siania had left. The scene was pure chaos.
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="45" name="Chapter 27 The Camp" tags="" position="400,6625" size="100,100">&lt;h2&gt;&lt;/h2&gt;They made their way back over the dunes, the desert suddenly feeling lighter. As they crested the last rise, the Draethlyn came into view—tangled in their own game, one rolling down a slope, another batting at the shiny trinket Siania had left. The scene was pure chaos.
 
 Kaelith stopped, staring. “Unbelievable. I’ve just cut down slavers, and now I’m facing a circus of giant spiders. Is this your idea of a welcoming committee? I was hoping for a fruit basket, maybe a nice note.”
 Siania smirked, clapping him on the shoulder. “They’re harmless. More like oversized children than killers. Stay close, and they’ll come to trust you.”
@@ -2277,7 +2309,7 @@ Siania shrugged, turning away. “Someone has to.”
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 27: Agara Comes to Rescue]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="46" name="Chapter 27: Agara Comes to Rescue" tags="" position="400,6750" size="100,100">&lt;h2&gt;Chapter 27: Agara Comes to Rescue&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 27: Agara Comes to Rescue]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="46" name="Chapter 27: Agara Comes to Rescue" tags="" position="400,6750" size="100,100">&lt;h2&gt;Chapter 27: Agara Comes to Rescue&lt;/h2&gt;
 Overview: Siania, her spider allies, and the newly freed Kaelith and Aryfis find themselves in the midst of a dangerous conflict near or just outside Sanctuary Camp Agamar, as the desert slavers return en masse seeking retaliation for the earlier rescue. The situation is dire, with survival as the sole focus. Agamar, the Enchantress/Mystic, appears as a mysterious savior, showcasing her formidable skills and leading the entire group to safety with minimal explanation.
 
 Key Requirements for Narrative Arc:
@@ -2300,7 +2332,7 @@ Tone and Focus: The scene remains fast-paced and intense, centered on the immedi
 
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 28: Arrival and Shelter]] &lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="47" name="Chapter 28: Arrival and Shelter" tags="" position="400,6900" size="100,100">&lt;h2&gt;Chapter 28: Arrival and Shelter&lt;/h2&gt;Safe at last within a rugged shelter at Sanctuary Camp Agamar, the group took a moment to breathe. Siania tended to minor injuries with quiet focus, her spiders clustering nearby, their childlike nature calming in the stillness as they chirped softly. Kaelith leaned against a wall, scanning their refuge with a pirate’s caution, his expression a mix of relief and lingering discontent at being so far from the ocean, surrounded by Draevynil spiders he could barely stand. Arafis prowled the edges, tail twitching with restless energy as he poked at random debris, a bundle of chaos in the quiet. The slavers’ threat still loomed in his mind, but so did the question of whether this journey held any profit—or if Siania’s presence was the only salvageable piece.
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="47" name="Chapter 28: Arrival and Shelter" tags="" position="400,6900" size="100,100">&lt;h2&gt;Chapter 28: Arrival and Shelter&lt;/h2&gt;Safe at last within a rugged shelter at Sanctuary Camp Agamar, the group took a moment to breathe. Siania tended to minor injuries with quiet focus, her spiders clustering nearby, their childlike nature calming in the stillness as they chirped softly. Kaelith leaned against a wall, scanning their refuge with a pirate’s caution, his expression a mix of relief and lingering discontent at being so far from the ocean, surrounded by Draevynil spiders he could barely stand. Arafis prowled the edges, tail twitching with restless energy as he poked at random debris, a bundle of chaos in the quiet. The slavers’ threat still loomed in his mind, but so did the question of whether this journey held any profit—or if Siania’s presence was the only salvageable piece.
 “Better than a slaver’s cage, I’ll grant, but I’d trade this dust pit for a deck under my feet any day,” Kaelith remarked, his voice low and wry as he brushed sand from his coat. He eyed Arafis with a faint, sardonic smirk, keeping his tone measured despite his irritation. “And you, imp, don’t get any ideas about lightening my load. I’ve heard enough tales of your kind’s tricks to keep both eyes on you.” His wariness of Arafis’s reputation was clear, but his well-bred nature kept it from tipping into hostility, his real frustration aimed at the desert, the spiders, and the lingering danger of pursuit. His gaze drifted to Siania, her composed beauty a quiet counterpoint to the mess, and he added under his breath, “Though I suppose the view’s not all bad. Still deciding if it’s worth the trouble.”
 Arafis flopped down near Siania, oblivious to Kaelith’s musings, and fiddled with a dusty pebble he’d picked up, rolling it between his fingers with an odd grin. “Not much of a hideout, but it’ll do! Here, lady-of-the-sand, a little desert bit to mark the day!” He offered it to her with a cheeky flourish, his gesture playful and seeking a reaction, though its deeper meaning—if any—remained hidden. Siania took it with a faint, tired nod, her focus more on rest than on deciphering the imp. “Thanks, Arafis. Just stay put for now—we’ve had enough excitement.” Her tone was practical, still seeing him as an unpredictable new companion.
 Kaelith’s smirk faded into a faint grimace as a spider shifted closer, prompting him to edge away with a muttered, “Blasted things. Big as ponies and twice as unnerving.” He shot Arafis a dry look, keeping his voice even. “If you’re handing out trinkets, imp, find me one that gets me back to a ship. Or at least keeps these leggy beasts at bay.” His words carried a reluctant humor, less about Arafis and more about venting his distaste for his current lot, the slavers’ threat a dark undercurrent to his still-forming opinion of this ragtag group.
@@ -2316,7 +2348,7 @@ Initial Questions: The protagonist might ask about Agamar&#39;s connection to th
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 29: Forming an Alliance]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="48" name="Chapter 29: Forming an Alliance" tags="" position="400,7075" size="100,100">&lt;h2&gt;Chapter 29: Forming an Alliance&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 29: Forming an Alliance]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="48" name="Chapter 29: Forming an Alliance" tags="" position="400,7075" size="100,100">&lt;h2&gt;Chapter 29: Forming an Alliance&lt;/h2&gt;
 Overview: Trust begins to form between Siania and Agamar through shared time and conversation at Sanctuary Camp. Agamar proposes an alliance, recognizing Siania’s potential and their connected histories, while the spiders reinforce this bond with their own fragmented memories.
 
 Key Requirements for Narrative Arc:
@@ -2348,19 +2380,19 @@ Alliance Proposal: Agamar proposes an alliance, sensing the protagonist&#39;s po
 [[Chapter 30: Learning New Skills]]
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 30: Learning New Skills]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="49" name="Chapter 30: Discovering the Past" tags="" position="400,7375" size="100,100">&lt;h2&gt;Chapter 30: Discovering the Past&lt;/h2&gt;- The Agamar shares insights, stories, or visions that reveal important truths about the protagonist’s past or the world’s history.
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 30: Learning New Skills]] &lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="49" name="Chapter 30: Discovering the Past" tags="" position="400,7375" size="100,100">&lt;h2&gt;Chapter 30: Discovering the Past&lt;/h2&gt;- The Agamar shares insights, stories, or visions that reveal important truths about the protagonist’s past or the world’s history.
 - These revelations provide motivation and context for the journey ahead.
 Agara&#39;s Full Story: She discloses her true identity, the spiders&#39; tragic history, and Siania&#39;s role in breaking the curse.
 Spider Guilt &amp; Love: The spiders interrupt with tearful apologies, and Agamar comforts them, showing her forgiveness.
 
 
-[[Chapter 31: Departure and New Mission]]</tw-passagedata><tw-passagedata pid="50" name="Chapter 31: Departure and New Mission" tags="" position="400,7525" size="100,100">&lt;h2&gt;Chapter 31: Departure and New Mission&lt;/h2&gt;- The Agamar delivers a vision about a grave horde and the Heart Stone.
+[[Chapter 31: Departure and New Mission]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="50" name="Chapter 31: Departure and New Mission" tags="" position="400,7525" size="100,100">&lt;h2&gt;Chapter 31: Departure and New Mission&lt;/h2&gt;- The Agamar delivers a vision about a grave horde and the Heart Stone.
 - the spiders know the place although they are reluctant to go in *there are undead guarding treasure there and although the spiders love glittery treasure they are terrified of the grave horde (a deal is made that they will lead the group there but not enter)
 - The protagonist, changed by their time (new skills in magic + the second sword of the dawn empress) at the sanctuary, prepares to leave, setting out on the next stage of their journey.
 The Grave Horde Deal: The spiders&#39; fear of the undead is rooted in their cursed past. Their compromise reflects both trauma and loyalty.
 Agara&#39;s Warning: She cautions the protagonist that &quot;trust is a blade that cuts both ways,&quot; referencing her own past.
 
-[[Chapter 31 The Hawk Fled West]]</tw-passagedata><tw-passagedata pid="51" name="Chapter 30: Learning New Skills" tags="" position="375,7225" size="100,100">&lt;h2&gt;Agamar’s Instruction: The Bridge Magic System in Practice&lt;/h2&gt;
+[[Chapter 31 The Hawk Fled West]] (set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="51" name="Chapter 30: Learning New Skills" tags="" position="375,7225" size="100,100">&lt;h2&gt;Agamar’s Instruction: The Bridge Magic System in Practice&lt;/h2&gt;
 Agamar stood before Siania, the desert oasis aglow in the soft coral light of dusk. &quot;Today, we begin the true work,&quot; she said, her voice carrying centuries of wisdom. &quot;Theory is one thing. Feeling the currents—that’s where the power lies.&quot;
 She gestured to a nearby stream, its surface faintly glinting. &quot;Elementals are sentient forces, Siania. River spirits, storm wraiths, earth guardians—they exist, but they cannot act directly in our world or against other elementals. Ancient rules bind them, rules we barely grasp. You are the bridge, a living conduit, allowing them to bypass those restrictions. But they need your will, your strength.  But beware: an adversarial elemental, like the corruption tainting this stream, can exploit a faltering bridge. If your focus wavers, it may seize the rift your weakness creates, acting briefly without an agreement to strike at you or its rival.&quot;
 &quot;Sahariël, a sentient elemental, can connect to you as a bridge, channeling your focused will in ways unbound elementals cannot. When linked, Sahariël may share its understanding of the oasis and its history if you wish it, drawn from its ancient presence there. Yet its perspective, shaped by a non-human dimension, may seem alien or incomprehensible to humans at times. Magical rules may further bind what it can reveal, and some truths it conveys might defy human understanding due to its otherworldly nature..&quot;
@@ -2427,7 +2459,7 @@ These  chapters  build on the rescue by transitioning Siania from a state of vul
 [[Agara The Dawn Empress]] 
 [[Chapter 30: Discovering the Past]]
 
-</tw-passagedata><tw-passagedata pid="52" name="Chapter 31 The Hawk Fled West" tags="" position="400,7675" size="100,100">&lt;h2&gt;Chapter 31 The Hawk Fled West&lt;/h2&gt;The ochre dust of the khamsin clung to Darian Vestergaard’s cloak like a second skin, gritty in his throat and stinging his eyes, as he stumbled with Jaro, Torren, and Tarek into the sheltered embrace of the Rasha’ni camp. Halak, the wizened chief whose daughter Siania had pulled from a flash flood years before, met them not with overt warmth, but with the solemn gravity of desert debt recognised. Vestergaard pressed the bone hare toggle into Halak’s calloused hand. &quot;Siania of the Fort sends a friend needing the wind’s shadow,&quot; he rasped, the words heavy with exhaustion and the unspoken weight of their flight. Halak’s eyes, sharp as obsidian shards, flickered over the loyalists – Jaro’s familiar, weary nod confirming the message – then settled on Vestergaard, assessing the nobleman. The bone hare was clasped, a silent pact sealed. Shelter was granted, deep within the labyrinthine canyons known only to the Rasha’ni, a sanctuary invisible to imperial scouts and Severin’s Scarmarshals alike. Here, they were ghosts.
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="52" name="Chapter 31 The Hawk Fled West" tags="" position="400,7675" size="100,100">&lt;h2&gt;Chapter 31 The Hawk Fled West&lt;/h2&gt;The ochre dust of the khamsin clung to Darian Vestergaard’s cloak like a second skin, gritty in his throat and stinging his eyes, as he stumbled with Jaro, Torren, and Tarek into the sheltered embrace of the Rasha’ni camp. Halak, the wizened chief whose daughter Siania had pulled from a flash flood years before, met them not with overt warmth, but with the solemn gravity of desert debt recognised. Vestergaard pressed the bone hare toggle into Halak’s calloused hand. &quot;Siania of the Fort sends a friend needing the wind’s shadow,&quot; he rasped, the words heavy with exhaustion and the unspoken weight of their flight. Halak’s eyes, sharp as obsidian shards, flickered over the loyalists – Jaro’s familiar, weary nod confirming the message – then settled on Vestergaard, assessing the nobleman. The bone hare was clasped, a silent pact sealed. Shelter was granted, deep within the labyrinthine canyons known only to the Rasha’ni, a sanctuary invisible to imperial scouts and Severin’s Scarmarshals alike. Here, they were ghosts.
 News of the disappearance – the disastrous hunt scattered by storm and conflicting reports – reached Councillor Valerius House Kren in Talon far faster than any imperial courier. His web of contacts, threads woven even among the &quot;savage&quot; tribes the nobility scorned, hummed with intelligence. A coded message, confirmed it: The Hawk fled west. Sheltered by the Wind’s Shadow. Three Ravens guard. Valerius, sequestered in his shadowed study thick with the scent of aged parchment and intrigue, allowed himself a rare, thin smile devoid of warmth. Vestergaard lives. And he reached Halak. Relief warred instantly with calculation.
 This changed everything. Valerius saw not just a fugitive noble, but the ultimate hidden weapon. Revealing Vestergaard now, while Severin’s grip on the court choked dissent and his mother’s hunters scoured the trade routes, would be suicide. It would trigger a desperate, overwhelming retaliation before Valerius could marshal his nascent alliances and evidence. Instead, swift orders flowed back through the same tribal channels: Keep the Hawk hidden. Feed the Ravens. Silence is gold. Eyes sharp for the Storm-Daughter. The Rasha’ni, operating far outside Talon’s sight, became Vestergaard’s unseen guardians. Valerius ensured supplies, carefully curated information filtered through Halak, and absolute secrecy. 
 Vestergaard, Jaro, Torren, and Tarek existed in a state of suspended animation, guests of the wind and rock. It was too dangerous for the loyalists to slip back into Fort Kezarak; suspicion would cling to them like the desert dust after their prolonged absence. They were safest, and most useful, right where they were – bound to Vestergaard guardian him as siania had commanded.
@@ -2456,11 +2488,11 @@ Darian’s duty, however, extended beyond Valerius’s cause. He owed Siania a d
 
 
 
-</tw-passagedata><tw-passagedata pid="53" name="Chapter 32 Leave Agra Heartstone mission" tags="" position="375,7800" size="100,100">&lt;h2&gt;Chapter 32 Leave Agra Heartstone mission&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="53" name="Chapter 32 Leave Agra Heartstone mission" tags="" position="375,7800" size="100,100">&lt;h2&gt;Chapter 32 Leave Agra Heartstone mission&lt;/h2&gt;
 
 You learn who Agara is, she gives the duel swords to Siania + the mission to recover the Heartstone from the gravehord - this will help her enter Talin/Temple 
 
-[[Chapter 33 Greedy Grave]]</tw-passagedata><tw-passagedata pid="54" name="Chapter 33 Greedy Grave" tags="" position="375,7900" size="100,100">&lt;h2&gt;Chapter 33 Greedy Grave&lt;/h2&gt;Arafis slinked into the treasure chamber, eyes darting, tail twitching. The air was thick with old magic—enough to make his horns itch. Siania and Kaelith were at the far end, arguing about which exit wasn’t a death trap. The spiders had already scuttled off, muttering about “bad vibes” and “too many bones.”
+[[Chapter 33 Greedy Grave]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="54" name="Chapter 33 Greedy Grave" tags="" position="375,7900" size="100,100">&lt;h2&gt;Chapter 33 Greedy Grave&lt;/h2&gt;Arafis slinked into the treasure chamber, eyes darting, tail twitching. The air was thick with old magic—enough to make his horns itch. Siania and Kaelith were at the far end, arguing about which exit wasn’t a death trap. The spiders had already scuttled off, muttering about “bad vibes” and “too many bones.”
 Aryfis rubbed his impish hands together, fingers sparkling with unspent mischief. His breath escaped in a hiss of relief—&quot;Fiiiinally... a little peace and quiet.&quot; The theatrical sigh dissolved as his pupils dilated, already attuning to new pos-si-bil-i-ties.
 The cavern expanded around him, its damp with vague outlines of columns and mounds and ever deepening shadows. But there it was—that unmistakable scent. Not just a possibility... but a golden possibility — A possibility worth visiting.!.
 He tiptoed forward in an exaggerated crouch—shoulders hunched, hands outstretched, each step as silent as he could manage. But his tail, oblivious to the need for stealth, waggled in irrepressible excitement. Aryfis froze, shooting a desperate glare over his shoulder, willing his tail to stillness. “Traitor,” he muttered.”I&#39;m working here”
@@ -2561,7 +2593,7 @@ But Siania’s voice cut through the din, raw and desperate: “But we need the 
 Kaelith, encouraging but with a note Aryfis knew was a lie: “It’s no good if we’re dead. There’ll be another way—let’s go!”
 
 [[Chapter 34 Arifus Choices]]
-</tw-passagedata><tw-passagedata pid="55" name="Chapter 34 Arifus Choices" tags="" position="400,8050" size="100,100">&lt;h2&gt;Chapter 34 Arifus Choices&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="55" name="Chapter 34 Arifus Choices" tags="" position="400,8050" size="100,100">&lt;h2&gt;Chapter 34 Arifus Choices&lt;/h2&gt;
 Aryfis hung back as they ran for the exit, the fresh air beckoning. He squeezed his eyes shut, resisting the urge to bolt, tail lashing. “Alright, alright! I’ll play the hero. Just this once.”
 He plunged back into the chaos, arms waving, whistling a tuneless, obnoxious ditty as he zigzagged through the treasure piles. “Come on, come on, follow the imp, nothing to see over there, just your friendly neighbourhood distraction—oh, ew, what did I just step in?” He shuddered, hopping over a tangle of bones, muttering, “That’s never coming out of my fur.”
 
@@ -2724,7 +2756,7 @@ But the sound of Siania’s laughter and Kaelith’s grumbling tugged him forwar
 The apricot light of dusk crept in as they headed farther out, making their way toward the coast, the promise of the horizon waiting just beyond their reach.
 
 [[Chapter 35 The Road to the Sea]]
-</tw-passagedata><tw-passagedata pid="56" name="Chapter 35 The Road to the Sea" tags="" position="400,8175" size="100,100">&lt;h2&gt;Chapter 35 The Road to the Sea&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="56" name="Chapter 35 The Road to the Sea" tags="" position="400,8175" size="100,100">&lt;h2&gt;Chapter 35 The Road to the Sea&lt;/h2&gt;
 
 The desert wind scours their skin, carrying the scent of sun-baked stone and distant salt. Siania leads, boots sinking into shifting sand, the Heart stone’s weight a silent throb at her side. The gem—a large, faceted yellow rectangle on a silver chain, marked with her house’s symbol—rests against her chest. She doesn’t know what it is, only that it’s beautiful, mysterious, and somehow comforting, as if it hums a wordless promise of safety.
 
@@ -2807,7 +2839,7 @@ As the ship creaks away from the pier, Siania stands at the rail, salt spray on 
 Kaelith’s hand rests on the rail, just close enough to brush Siania’s. Aryfis hums a jaunty, decidedly inappropriate seaside tune under his breath, the wind snatching away the worst of the words. Without looking, Kaelith reaches back and cuffs Aryfis lightly on the head, earning a snicker from the imp. Each of them, in their own way, leans into the promise of the open water and the unknown ahead, and for a moment, that is enough.
 
 [[Chapter 35 Voyage to Talin]]
-</tw-passagedata><tw-passagedata pid="57" name="Chapter 35 Voyage to Talin" tags="" position="400,8300" size="100,100">&lt;h2&gt;Chapter 35 Voyage to Talin&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="57" name="Chapter 35 Voyage to Talin" tags="" position="400,8300" size="100,100">&lt;h2&gt;Chapter 35 Voyage to Talin&lt;/h2&gt;
 Aryfis, irrepressible as ever, darted across the deck in a blur of mischief. With a deft leap, he snatched a sailor’s hat—the brim flapping wildly in his grip—and plopped it onto his own head, grinning. But the wind had other ideas. A sudden gust whipped the hat away, sending it tumbling end over end across the planks.
 “Wait! Come back!” Aryfis called after it, wagging a finger as he chased. “You’re being far too adventurous!....”
 He was after it in a heartbeat, bare feet slapping the wood as he sprinted, then nimbly balanced along the ship’s railing, arms pinwheeling for balance. He nearly collided with a barrel, twisting aside at the last moment to avoid disaster. The sailors groaned—some laughing, others exasperated—as Aryfis lunged and caught the hat just before it could sail overboard.
@@ -2946,12 +2978,12 @@ She let her eyes close, the warmth of the blanket and of him, steady and close, 
 The ship sailed on toward the city’s shining bridges—and the darkness waiting beneath. She felt the warmth of the blanket, and of him, steady and close. His presence was a silent comfort: she was safe, for now.
 Siania closed her eyes, letting the sound of laughter and the hush of the waves wash over her. For the first time in a long while, she let herself drift, trusting Kaelith to keep watch as she slipped into sleep. The ship sailed on toward the city’s shining bridges—and the darkness waiting beneath.
 
-[[Chapter 36 Between Storm Battle and Arrival at Talin]]</tw-passagedata><tw-passagedata pid="58" name="Chapter 36 Between Storm Battle and Arrival at Talin" tags="" position="400,8425" size="100,100">&lt;h2&gt;Chapter 36 Between Storm Battle and Arrival at Talin&lt;/h2&gt;
+[[Chapter 36 Between Storm Battle and Arrival at Talin]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="58" name="Chapter 36 Between Storm Battle and Arrival at Talin" tags="" position="400,8425" size="100,100">&lt;h2&gt;Chapter 36 Between Storm Battle and Arrival at Talin&lt;/h2&gt;
 The dawn came slowly, grudgingly, as if the sea itself was reluctant to release them from the night&#39;s terror. The storm&#39;s fury had spent itself, leaving behind a bruised sky and a ship that groaned with every swell. Siania stood at the rail, her fingers tracing the fresh scars on the wood where the kraken&#39;s suckers had gripped. The salt air stung her cracked lips, but she welcomed the pain—it meant they had survived.
 Around her, the crew moved like ghosts, their usual banter silenced by exhaustion and the memory of wraiths&#39; screams. Even Aryfis was uncharacteristically still, curled in a coil of rope with his tail wrapped tight around himself, watching the horizon with hollow eyes. Only Kaelith seemed unchanged, barking orders with his usual rough humor, though Siania noticed how he leaned heavier on the rail when he thought no one was looking.
 The first glimpse of Talin&#39;s bridges should have been a relief. But as the golden spires shimmered into view, Siania felt the Heartstone grow heavier at her side. The city was beautiful—and it was watching them.
 
-[[Chapter 37 Arrival at Talin Port]]</tw-passagedata><tw-passagedata pid="59" name="Chapter 37 Arrival at Talin Port" tags="" position="400,8550" size="100,100">&lt;h2&gt;Chapter 37 Arrival at Talin Port&lt;/h2&gt;
+[[Chapter 37 Arrival at Talin Port]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="59" name="Chapter 37 Arrival at Talin Port" tags="" position="400,8550" size="100,100">&lt;h2&gt;Chapter 37 Arrival at Talin Port&lt;/h2&gt;
 The battered ship limped into Talin’s harbor, sails torn, hull scarred by kraken suckers and the storm’s fury. The city’s bridges arched overhead, golden in the dawn, but the mood on deck was taut—relief and exhaustion tangled with a new, sharper fear.
 Siania stood at the rail, the Heartstone heavy at her side, her eyes fixed on the city’s spires. The memory of Namariel’s power still echoed in her bones—vast, cold, and ancient. She felt hollowed out, as if the sea itself had left a mark inside her. But there was no time to dwell on it. The city was awake, and word of their coming had surely spread.
 Kaelith was all business, barking orders as the ship docked, but his voice was hoarse, and he moved with a limp he tried to hide. He kept glancing at Siania, worry flickering in his eyes, and at Aryfis, who was uncharacteristically quiet.
@@ -2990,7 +3022,7 @@ Kaelith pinched the bridge of his nose as the innkeeper opened and closed his mo
 The innkeeper nodded, already moving to the next table, but Aryfis saw the way he watched the door, the way the urchins outside melted into the shadows, ready to run messages or raise the alarm.
 For now, they had a haven. For now, the city’s web held them safe. But Aryfis could feel the pressure building—the sense that every secret, every shadow, was just waiting for a chance to slip through the cracks.
 [[Chapter 38 The Tavern’s Sanctuary]]
-</tw-passagedata><tw-passagedata pid="60" name="Chapter 38 The Tavern’s Sanctuary" tags="" position="400,8675" size="100,100">&lt;h2&gt;Chapter 38 The Tavern’s Sanctuary&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="60" name="Chapter 38 The Tavern’s Sanctuary" tags="" position="400,8675" size="100,100">&lt;h2&gt;Chapter 38 The Tavern’s Sanctuary&lt;/h2&gt;
 The tavern was a battered sanctuary, its windows fogged with the breath of too many secrets. For two days, Siania, Kaelith, and Aryfis made it their world—hiding in the back rooms, venturing out only in disguise, and living on the innkeeper’s good graces and better pastries.
 Each morning, Kaelith would return from the bar with new rumors and a new limp, grumbling about the city’s “overabundance of idiots and spies.” Siania kept to the shadows, listening to the city’s pulse, her hand never far from the Heartstone. Aryfis, restless, made himself useful—running errands for the innkeeper, charming the urchins, and occasionally “liberating” a pastry or two, much to the delight of the urchins.
 They spent hours hunched over a battered table, a map of Talin spread before them, marking routes and contacts. Kaelith would tap the palace walls with a callused finger. “There’s the main gate—forget it, too many guards. The river tunnels? Flooded and crawling with Severin’s men. The old aqueduct? Collapsed last year, unless you can swim through stone.”
@@ -3027,7 +3059,7 @@ He pressed his forehead to the table, fighting the urge to bolt. “Not this tim
 Outside, the city churned with danger. But Aryfis stayed, watching, waiting, loyal—if only for a little while longer.
 
 [[Chapter 39: Aryfis’s Philosophy of Visits]]
-</tw-passagedata><tw-passagedata pid="61" name="Chapter 39: Aryfis’s Philosophy of Visits" tags="" position="400,8800" size="100,100">&lt;h2&gt;Chapter 39: Aryfis’s Philosophy of Visits&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="61" name="Chapter 39: Aryfis’s Philosophy of Visits" tags="" position="400,8800" size="100,100">&lt;h2&gt;Chapter 39: Aryfis’s Philosophy of Visits&lt;/h2&gt;
  The Warmth of the Rusty Hinge
 
 For some time now, curious things had been happening in the back room of the Rusty Hinge. The room held a steady warmth, its soft light casting gentle shadows across thick tapestries that muted the walls. The air was rich with the aroma of slow-cooked apples and roasted chicken. Plates of pastries, sausages, and custards lay scattered across the round table—a feast of comfort and color. Kaelith, Siania, and Arafis filled the space with laughter and stories, their voices rising and falling as the hours slipped by. Yet beneath all this comfort, something peculiar was always at work.
@@ -3102,24 +3134,24 @@ Kaelith laughed, clinking his mug. “But if a kraken shows up, the door’s loc
 Arafis’s giggle filled the room, bright as candlelight, warm as home. For a moment, the room hummed with shared magic—a reminder that stories, not hoards, make treasures shine.
 
 [[Chapter 40: Time to Leave]]
-</tw-passagedata><tw-passagedata pid="62" name="Chapter 40: Time to Leave" tags="" position="400,8925" size="100,100">&lt;h2&gt;Chapter 40: Time to Leave&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="62" name="Chapter 40: Time to Leave" tags="" position="400,8925" size="100,100">&lt;h2&gt;Chapter 40: Time to Leave&lt;/h2&gt;
 [[Scene: Port of Talon – Aryfis’s View]]
 
 
-[[Chapter 41:The Catacombs and the Psychic War]]</tw-passagedata><tw-passagedata pid="63" name="Chapter 41:The Catacombs and the Psychic War" tags="" position="400,9050" size="100,100">&lt;h2&gt;Chapter 41:The Catacombs and the Psychic War&lt;/h2&gt;
+[[Chapter 41:The Catacombs and the Psychic War]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="63" name="Chapter 41:The Catacombs and the Psychic War" tags="" position="400,9050" size="100,100">&lt;h2&gt;Chapter 41:The Catacombs and the Psychic War&lt;/h2&gt;
 
 [[Chapter 42: Descent into the Labyrinth]]
 
 
-[[wizards weren’t exactly known for leaving their goodies unguarded]]</tw-passagedata><tw-passagedata pid="64" name="Chapter 42: Descent into the Labyrinth" tags="" position="350,9175" size="100,100">&lt;h2&gt;Chapter 42: Descent into the Labyrinth&lt;/h2&gt;
+[[wizards weren’t exactly known for leaving their goodies unguarded]](set: $lastPassage to (passage:)&#39;s name) </tw-passagedata><tw-passagedata pid="64" name="Chapter 42: Descent into the Labyrinth" tags="" position="350,9175" size="100,100">&lt;h2&gt;Chapter 42: Descent into the Labyrinth&lt;/h2&gt;
 
 
 [[Chapter 43: Ash, the Hidden Ally]]
 
-[[The Psychic Labyrinth Showdown]]</tw-passagedata><tw-passagedata pid="65" name="Chapter 43: Ash, the Hidden Ally" tags="" position="400,9300" size="100,100">
+[[The Psychic Labyrinth Showdown]] (set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="65" name="Chapter 43: Ash, the Hidden Ally" tags="" position="400,9300" size="100,100">
 &lt;h2&gt;Chapter 43: Ash, the Hidden Ally&lt;/h2&gt;
 
-[[Chapter 44: The Pact Revisited]]</tw-passagedata><tw-passagedata pid="66" name="Chapter 44: The Pact Revisited" tags="" position="400,9425" size="100,100">&lt;h2&gt;Chapter 44: The Pact Revisited&lt;/h2&gt;
+[[Chapter 44: The Pact Revisited]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="66" name="Chapter 44: The Pact Revisited" tags="" position="400,9425" size="100,100">&lt;h2&gt;Chapter 44: The Pact Revisited&lt;/h2&gt;
 Chapter 23: The Pact Revisited
 Azaroth’s visions of betrayal, the truth about Tharion’s bargain, and the protagonist’s struggle to discern reality from manipulation.
 Revelation (with Azeroth with ash clarifying splitting reality to show what is missing):
@@ -3133,14 +3165,14 @@ Ash’s Role:
 
 
 
-[[Chapter 45: Redemption and Sacrifice]]</tw-passagedata><tw-passagedata pid="67" name="Chapter 45: Redemption and Sacrifice" tags="" position="400,9550" size="100,100">&lt;h2&gt;Chapter 45: Redemption and Sacrifice&lt;/h2&gt;
+[[Chapter 45: Redemption and Sacrifice]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="67" name="Chapter 45: Redemption and Sacrifice" tags="" position="400,9550" size="100,100">&lt;h2&gt;Chapter 45: Redemption and Sacrifice&lt;/h2&gt;
 Part VII: Redemption and Sacrifice
 Chapter 24: The Final Confrontation
 The psychic battle at the heart of the labyrinth: Siania, Ash, the Emperor, her mother’s spirit, and Azaroth. The merging of Ash and the Emperor, the expulsion of Azaroth, and the cleansing of the temple.
 
 
 
-[[Chapter 46: The Final Confrontation]]</tw-passagedata><tw-passagedata pid="68" name="Chapter 46: The Final Confrontation" tags="" position="400,9675" size="100,100">&lt;h2&gt;Chapter 46: The Final Confrontation&lt;/h2&gt;
+[[Chapter 46: The Final Confrontation]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="68" name="Chapter 46: The Final Confrontation" tags="" position="400,9675" size="100,100">&lt;h2&gt;Chapter 46: The Final Confrontation&lt;/h2&gt;
 
 The Final Confrontation
 Azaroth’s attention wavers, his malice turning back toward the Emperor. His voice falters for a heartbeat. The shadows suffocating the Emperor and your mother thin, the air grows lighter, the pressure in your skull easing. Ash—now restored within the Emperor—has given you this chance, risking everything, his very existence, to tip the balance.
@@ -3182,7 +3214,7 @@ No one speaks of the old wounds—her fear, her hatred, the betrayals, the losse
 
 
 
-[[Chapter 47: The Cost of Victory]]</tw-passagedata><tw-passagedata pid="69" name="Chapter 47: The Cost of Victory" tags="" position="425,9800" size="100,100">&lt;h2&gt;Chapter 47: The Cost of Victory&lt;/h2&gt;
+[[Chapter 47: The Cost of Victory]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="69" name="Chapter 47: The Cost of Victory" tags="" position="425,9800" size="100,100">&lt;h2&gt;Chapter 47: The Cost of Victory&lt;/h2&gt;
 Chapter 47: The Cost of Victory
 
 Ash’s Merging and Azaroth’s Expulsion
@@ -3214,10 +3246,10 @@ Mother (soft as a blessing; her form radiant, the Heartstone glowing in your han
 
 
 
-[[Epilogue: The Song Restored]]</tw-passagedata><tw-passagedata pid="70" name="Epilogue: The Song Restored" tags="" position="400,9925" size="100,100">&lt;h2&gt;Epilogue: The Song Restored&lt;/h2&gt;
+[[Epilogue: The Song Restored]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="70" name="Epilogue: The Song Restored" tags="" position="400,9925" size="100,100">&lt;h2&gt;Epilogue: The Song Restored&lt;/h2&gt;
 
 The Emperor and Aelira are reunited in the afterlife. Siania, now queen, chooses healing over vengeance. The imp’s redemption is complete, and the city’s future is bright with hope. The cycle of trauma is broken, and the song of the land rises anew.
-</tw-passagedata><tw-passagedata pid="71" name="wizards weren’t exactly known for leaving their goodies unguarded" tags="" position="175,9125" size="100,100">&lt;h2&gt;wizards weren’t exactly known for leaving their goodies unguarded&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="71" name="wizards weren’t exactly known for leaving their goodies unguarded" tags="" position="175,9125" size="100,100">&lt;h2&gt;wizards weren’t exactly known for leaving their goodies unguarded&lt;/h2&gt;
 ### Example: Aryfis in a New Scene
 
 
@@ -3391,7 +3423,7 @@ A spectral figure, all shifting colors and too many eyes, flickered above the ru
 
 **“Keep me close, little thieves. Amuse me, and fortune will follow. Bore me, and I’ll simply find a new hand to ride along with. But for now—what fun!”**
 
-The constructs crashed through the trees behind them, but the ruby’s glow winking in anticipation.</tw-passagedata><tw-passagedata pid="72" name="Heartstone" tags="" position="500,7925" size="100,100">&lt;h2&gt;Heartstone&lt;/h2&gt;
+The constructs crashed through the trees behind them, but the ruby’s glow winking in anticipation.(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="72" name="Heartstone" tags="" position="500,7925" size="100,100">&lt;h2&gt;Heartstone&lt;/h2&gt;
 
 A magical artifact that holds Aelira’s soul. Once an ordinary jewel, it became a prison for her spirit after her death, transforming into a source of both power and corruption. The Heartstone was kept in the palace, where Aelira’s presence subtly protected the city and comforted Tharion, even as it reminded him of his guilt and loss.
 
@@ -3585,7 +3617,7 @@ she made her fateful choice. Not with blades (for she left one behind as warning
 
 - Kin to Siania, mentor to the spiders.
 - Cursed/Exiled and Betrayed by her lover/to be consort a member of the Sadaarki and the Severin cult.
-- Her pact with Siania and the spiders is key to the city’s liberation.</tw-passagedata><tw-passagedata pid="75" name="Spirit-Assisted Object Linking" tags="" position="175,7325" size="100,100">&lt;h2&gt;Spirit-Assisted Object Linking&lt;/h2&gt;
+- Her pact with Siania and the spiders is key to the city’s liberation.</tw-passagedata><tw-passagedata pid="75" name="Spirit-Assisted Object Linking" tags="" position="250,7225" size="100,100">&lt;h2&gt;Spirit-Assisted Object Linking&lt;/h2&gt;
 ### 1. **Spirit-Assisted Object Linking**
 
 _Counters using magical links and spirits to disrupt or redirect other magics._
@@ -4128,7 +4160,9 @@ Councillor Valerius of House Kren
 (text-colour: &quot;#c0975f&quot;)[Physical Tells:] Subtle tension (fist-clenching, jaw) could betray him in high-stakes negotiations.
 
 (text-colour: &quot;#c0975f&quot;)[&lt;h2&gt;Conclusion&lt;/h2&gt;]
-Valerius is a lethal hybrid—part diplomat, part spymaster, with the reflexes of a survivor. But his loyalty to House Kren may be both his driving force and his blind spot.</tw-passagedata><tw-passagedata pid="86" name="Alliance Actors for the Entire Book" tags="" position="1275,125" size="100,100">[[Emperor Lucius IV (Tharion)]]
+Valerius is a lethal hybrid—part diplomat, part spymaster, with the reflexes of a survivor. But his loyalty to House Kren may be both his driving force and his blind spot.
+
+</tw-passagedata><tw-passagedata pid="86" name="Alliance Actors for the Entire Book" tags="" position="1275,125" size="100,100">[[Emperor Lucius IV (Tharion)]]
 [[Ash]]
 [[Court Envoys/Figures]]
 [[Order of Severin]]
@@ -4558,7 +4592,7 @@ The vision’s aftertaste clings, bitter and unresolved.
 
 
 
-</tw-passagedata><tw-passagedata pid="102" name="Scene: Port of Talon – Aryfis’s View" tags="" position="550,8900" size="100,100">&lt;h2&gt;Scene: Port of Talon – Aryfis’s View&lt;/h2&gt;
+</tw-passagedata><tw-passagedata pid="102" name="Scene: Port of Talon – Aryfis’s View" tags="" position="550,8925" size="100,100">&lt;h2&gt;Scene: Port of Talon – Aryfis’s View&lt;/h2&gt;
 Aryfis the marketplace imp flowers sulkily and stomps his tiny clawed foot on the salt-stained planks of the Talon docks. The city’s air is thick with brine, fish guts, and the shouts of sailors, but Aryfis is in no mood for the bustle. His tail flicks in irritation, nearly tripping a passing dockhand, who yelps and scurries away, muttering about “devil-kin and their curses.”
 He should be proud. He, Aryfis, has crossed deserts, braved haunted citadels, and survived Siania’s cooking. Yet here he is, ignored, his grand plans for mischief stifled by the seriousness of their mission. Siania is all business, the pirate is sharpening his cutlass, and nobody has even noticed the clever way Aryfis “borrowed” a pouch of silver from a distracted merchant. (He’ll return it. Maybe. If he remembers.)
 He scampers between crates, eyeing the bustling port for opportunity. A glint of something shiny—buttons, coins, a polished boot buckle—always draws his gaze. But today, even the prospect of petty theft feels hollow. Siania is tense, her eyes fixed on the distant palace spires. Aryfis senses the weight of her purpose, and it makes his own claws itch.
@@ -4574,7 +4608,7 @@ Aryfis puffs out his chest, trying to look brave. “Leave it to me, mistress! I
 As Siania slips away into the city’s labyrinthine streets, Aryfis watches her go, a strange ache in his chest. He’s still a devil, still selfish, still hungry for shiny things and mischief. But for the first time, he wants something more: to be worthy of her trust.
 He turns to the pirate, grinning his toothiest, most impish grin. “Well, mate, ready to cause some trouble?”
 And with that, Aryfis the imp—marketplace menace, would-be soul collector, and unlikely hero—leads the way into the desert, mischief and loyalty warring in his heart.
-</tw-passagedata><tw-passagedata pid="103" name="The Psychic Labyrinth Showdown" tags="" position="200,9275" size="100,100">&lt;h2&gt;The Psychic Labyrinth Showdown&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="103" name="The Psychic Labyrinth Showdown" tags="" position="200,9275" size="100,100">&lt;h2&gt;The Psychic Labyrinth Showdown&lt;/h2&gt;
 Climax: The Psychic Labyrinth Showdown
 
 
@@ -4671,7 +4705,7 @@ Azaroth is everywhere and nowhere, his presence twisting the corridors, his laug
 
 
 [[Vision 1: The Labyrinth and Ash]]
-</tw-passagedata><tw-passagedata pid="104" name="Vision 1: The Labyrinth and Ash" tags="" position="200,9400" size="100,100">&lt;h2&gt;Vision 1: The Labyrinth and Ash&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="104" name="Vision 1: The Labyrinth and Ash" tags="" position="200,9400" size="100,100">&lt;h2&gt;Vision 1: The Labyrinth and Ash&lt;/h2&gt;
 Vision 1: The Labyrinth and Ash
 You and Ash move together, hearts pounding, every sense straining for Azaroth’s presence. The way forward is never clear; the ground shifts, doors vanish, and the walls themselves seem to whisper your fears.
 Streaming, oozing psychic waves envelop you—a black stench of sickness and decay that clings to your skin and seeps into your mind. Azeroth is everywhere and nowhere, his laughter echoing, his power twisting the air. Panic claws at your thoughts as paths you thought were safe dissolve into traps, your own tricks turned against you. Every step forward is met with resistance, every breath thick with dread.
@@ -4685,7 +4719,7 @@ You reach the final door—the one you’ve never been able to open. Behind you,
 For a heartbeat, nothing happens. Then, with a blinding surge of light, the door shatters. The labyrinth collapses. Ash smiles at you, proud and grateful, even as he begins to fade.
 You stumble through the labyrinth’s next threshold, and the world lurches. The air thickens, the scent of incense and old stone pressing in. Azaroth’s presence coils around your mind, cold and suffocating.
 
-[[Vision 1b: The King’s Bargain (The Sword of Ages)]]</tw-passagedata><tw-passagedata pid="105" name="Vision 1b: The King’s Bargain (The Sword of Ages)" tags="" position="200,9525" size="100,100">&lt;h2&gt;Vision 1b: The King’s Bargain (The Sword of Ages)&lt;/h2&gt;
+[[Vision 1b: The King’s Bargain (The Sword of Ages)]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="105" name="Vision 1b: The King’s Bargain (The Sword of Ages)" tags="" position="200,9525" size="100,100">&lt;h2&gt;Vision 1b: The King’s Bargain (The Sword of Ages)&lt;/h2&gt;
 Vision 1b: The King’s Bargain (The Sword of Ages)
 Suddenly, you are not yourself. You are seeing through another’s eyes—your father’s, long ago, in a secret chamber beneath the palace. The Sword of Ages rests on a black altar, its light cold and pure. The High Chancellor’s voice is a blade.
 All are listening to the High Chancellor chant. In the blackness, his voice takes on an otherworldly quality. The words come in finality, as a pledge. An unbreakable promise.
@@ -4725,7 +4759,7 @@ You stagger forward, Ash’s presence lingering at your side. He does not comfor
 You are left uncertain, shaken. Is any of this real? Am I going mad? Is it lies? Did he really betray—make war on his own friends, his own people? He was not tricked—he was willing? The vision’s aftertaste clings, bitter and unresolved.
 
 [[Vision 2: The Heartstone and the Queen’s Return]]
-</tw-passagedata><tw-passagedata pid="106" name="Vision 2: The Heartstone and the Queen’s Return" tags="" position="200,9650" size="100,100">&lt;h2&gt;Vision 2: The Heartstone and the Queen’s Return&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="106" name="Vision 2: The Heartstone and the Queen’s Return" tags="" position="200,9650" size="100,100">&lt;h2&gt;Vision 2: The Heartstone and the Queen’s Return&lt;/h2&gt;
 Vision 2: The Heartstone and the Queen’s Return
 You are thrust into another memory, the world flickering with sickly green light. The Emperor stands over the dying Queen, his hands shaking, the air thick with incense and dread. The High Chancellor (Severin) offers him a choice:
 “Serve us, and she will live. Refuse, and she dies tonight.”
@@ -4755,7 +4789,7 @@ Over time, rumors spread among the commoners about a “Queen’s soul stone,”
 
 
 [[Inside the Mind: The Undoing]]
-</tw-passagedata><tw-passagedata pid="107" name="Inside the Mind: The Undoing" tags="" position="200,9775" size="100,100">&lt;h2&gt;Inside the Mind: The Undoing&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="107" name="Inside the Mind: The Undoing" tags="" position="200,9775" size="100,100">&lt;h2&gt;Inside the Mind: The Undoing&lt;/h2&gt;
 Inside the Mind: The Undoing
 (Atmospheric Psychic Battle)
 You cross the threshold into the final room of the labyrinth, and the world shudders. The air is thick—almost viscous—heavy with the scent of old incense and the chill of centuries-old regret. Shadows pool in the corners, swirling with the memory of loss. You alone are alive here; every other presence is memory, echo, or spirit.
@@ -4795,7 +4829,7 @@ Her forgiveness radiates warmth, the cracks in the crystal glowing with golden l
 
 
 [[Ash’s Return: The Catalyst]]
-</tw-passagedata><tw-passagedata pid="108" name="Ash’s Return: The Catalyst" tags="" position="200,9900" size="100,100">&lt;h2&gt;Ash’s Return: The Catalyst&lt;/h2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="108" name="Ash’s Return: The Catalyst" tags="" position="200,9900" size="100,100">&lt;h2&gt;Ash’s Return: The Catalyst&lt;/h2&gt;
 While Azaroth’s attention is fixed on you and your mother, a golden light flickers at the edge of your vision—a ripple in the psychic haze. You sense, rather than see, a small presence slip into the room: Ash, silent, eyes wide with exhaustion and resolve. Shadows cling to him like mist, but his gaze is fixed not on you, but on the Emperor.
 Ash closes his eyes, steadying himself. He doesn’t speak; he doesn’t need to. You feel the brush of his hand in yours—real and not real at once, a memory, a promise, a final act of courage. The Emperor sees him. For a moment, neither moves. Then Ash lifts his hand. The Emperor, jaw set, mirrors him. Their palms meet. Where their hands touch, light pulses outward—silver and gold, flickering with memories and lost time. For a heartbeat, you see both faces, child and man, superimposed: innocence and sorrow, hope and regret, fusing into one. The Emperor’s hands, once heavy with age and guilt, now move with the lightness of a child’s.
 
@@ -4817,7 +4851,7 @@ He lifts his head, and for the first time, you see a new steadiness in his eyes�
 “For so long, I thought I was lost. But he waited for me. He kept the best of me safe, all these years. And you—you helped bring me back. You were the friend I never thought I’d have, not as a ruler, not even as a father. Now, at last, I am whole. And I am free.”
 The chamber is silent, the light gentle and whole. In that hush, you understand: Ash and the Emperor were never truly separate. The child’s courage and the man’s sorrow are one and the same—and now, at last, they are whole again.
 
-[[Chapter 46: The Final Confrontation]]</tw-passagedata><tw-passagedata pid="109" name="Siania" tags="" position="1325,725" size="100,100">The Arranged Marriage
+[[Chapter 46: The Final Confrontation]](set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="109" name="Siania" tags="" position="1325,725" size="100,100">The Arranged Marriage
 The counselors, now controlling the corrupted Tharion, arrange for his daughter to marry a cruel partner
 They target her because of her mother&#39;s bloodline, which is the one connected to the temple
 The corrupted Tharion, now completely evil, approves of this arrangement
@@ -4907,7 +4941,8 @@ Or would he finally stand for her?
 (set: $fortKezerakApproval to it - 1)
 (set: $notificationMessage to &quot;-1 Fort Kezerak&quot;)
 (display: &quot;Notification&quot;)
-(display: &quot;Allegiances&quot;)</tw-passagedata><tw-passagedata pid="117" name="Ignore their harshness and offer help anyway." tags="" position="450,550" size="100,100">&lt;h2&gt;Defy the guards’ attitude and offer immediate help.&lt;/h2&gt;
+(display: &quot;Allegiances&quot;)
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="117" name="Ignore their harshness and offer help anyway." tags="" position="450,550" size="100,100">&lt;h2&gt;Defy the guards’ attitude and offer immediate help.&lt;/h2&gt;
 At first, Torren, molded by a child’s urge to fit in and bound to House Lucian, sided with the guards. He assumed their silence meant Siania was somehow to blame for the coldness, a conclusion drawn from his limited understanding of the adult world. He didn’t yet grasp that the guards were caught in a web of fear and political caution, unwilling to risk persecution by showing her kindness. He kept his distance, observing as she entered the fort. 
 
 But something shifted within him. He saw no one offer a hand, saw her small frame tremble not just from exhaustion but from something deeper, perhaps fear or loss. In that moment, a thread of doubt wove in, questioning the obedience and Lucian ties he belonged to.
@@ -4936,7 +4971,8 @@ Now, at twenty-eight, Torren looked back and saw the shape of their loyalty—fo
 (set: $jaro to it + 1)
 (set: $tarek to it + 1)
 (set: $fortKezerakApproval to it + 3)
-(set: $KezerakRevolt to it + 3)</tw-passagedata><tw-passagedata pid="118" name="Days of Innocence" tags="" position="575,600" size="100,100">&lt;h2&gt;Days of Innocence&lt;/h2&gt;
+(set: $KezerakRevolt to it + 3)
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="118" name="Days of Innocence" tags="" position="575,600" size="100,100">&lt;h2&gt;Days of Innocence&lt;/h2&gt;
 His gaze drifted to the distant dunes beyond the fort’s walls, where the sand shimmered under the harsh sun, and Torren couldn’t help but see them as children again, racing across that same unforgiving terrain toward incoming caravans. Torren remembered her as a child—racing across the dunes with the rest of them to meet Talon’s caravans, all of them half-wild, half-starved, and wholly incorrigible. 
 
  (text-colour:#d0a853)[How does Torren use his influence during the race?]
@@ -4946,7 +4982,7 @@ His gaze drifted to the distant dunes beyond the fort’s walls, where the sand 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[He runs ahead with the others, she&#39;s not part of their circle.]] &lt;/span&gt;
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[He slows to run beside Siania]] &lt;/span&gt;
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[He calls out sharply to the boys, ordering them to wait for Siania]] &lt;/span&gt;
-
+(set: $lastPassage to (passage:)&#39;s name)
  
 
 
@@ -4967,7 +5003,7 @@ This deepened the ache of Siania&#39;s potential loss; bound to the desert, she 
 
 
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|A mind adrift]]&lt;/span&gt;
-
+(set: $lastPassage to (passage:)&#39;s name)
 
 </tw-passagedata><tw-passagedata pid="120" name="A mind adrift" tags="" position="550,1400" size="100,100">&lt;h2&gt;A Mind Adrift&lt;/h2&gt;
 Why did this thought seize him now, when duty demanded his attention? He turned his eyes to the arena below, seeking a moment of respite. The trials were a source of quiet pride for Fort Kezerak, a display of skill and honor that steadied Torren’s mood as he looked forward to the efforts of the fort’s warriors and the visiting competitors who joined them for the month. Yet, even this could not fully draw him from his inner conflict.
@@ -4984,7 +5020,8 @@ The guardsman hesitated, then spoke with cautious thought. “They might struggl
 
 
 
-&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|When Duty Was Clear]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="121" name="When Duty Was Clear" tags="" position="650,1400" size="100,100">&lt;h2&gt;When Duty Was Clear&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|When Duty Was Clear]]&lt;/span&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="121" name="When Duty Was Clear" tags="" position="650,1400" size="100,100">&lt;h2&gt;When Duty Was Clear&lt;/h2&gt;
 Torren observed the young sentinel settle in, noting the sharp salute and unclouded eagerness in his eyes. There had been a time when duty felt that straightforward to Torren—before the boundaries of oath and loyalty grew indistinct. The boy’s perspective was still unmarred; Torren’s had become a landscape of shifting sand.
 
 A familiar step broke his thoughts. Jaro approached, helmet under arm, a wry grin in place. “Brooding again?”
@@ -5012,7 +5049,7 @@ He fell into step beside Torren, his easy stride a contrast to Torren’s measur
 
 
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Pride Tinged with Sorrow]]&lt;/span&gt;
-
+(set: $lastPassage to (passage:)&#39;s name)
 
 </tw-passagedata><tw-passagedata pid="122" name="Pride Tinged with Sorrow" tags="" position="750,1400" size="100,100">&lt;h2&gt;Pride Tinged with Sorrow&lt;/h2&gt;
 A quiet pride stirred in Torren’s composed exterior. Siania’s strengths would hold—he had no doubt. In her, they recognized resilience and skill. 
@@ -5039,8 +5076,8 @@ He nodded toward the crowded gates, where the crowd pressed close. “Is Vesterg
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Light Words, Heavy Thoughts]] &lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="123" name="Light Words, Heavy Thoughts" tags="" position="850,1400" size="100,100">&lt;h2&gt;Light Words, Heavy Thoughts&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Light Words, Heavy Thoughts]] &lt;/span&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="123" name="Light Words, Heavy Thoughts" tags="" position="850,1400" size="100,100">&lt;h2&gt;Light Words, Heavy Thoughts&lt;/h2&gt;
 Jaro gave a low huff, eyes narrowing with dry amusement. “Surveying, indeed. He watches the yard as a hawk eyes open ground—though I reckon it’s not just her blade he’s keen to know, given the betrothal.”
 
 Tarek’s eyes sharpened, a protective edge beneath his calm.
@@ -5074,7 +5111,7 @@ The group fell silent.
 
 
 
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|A Procession of Power]] &lt;/span&gt;</tw-passagedata><tw-passagedata pid="124" name="A Procession of Power" tags="" position="950,1400" size="100,100">&lt;h2&gt;A Procession of Power&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|A Procession of Power]] &lt;/span&gt; (set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="124" name="A Procession of Power" tags="" position="950,1400" size="100,100">&lt;h2&gt;A Procession of Power&lt;/h2&gt;
 They moved steadily down the road, the crowds thickening with every step. Merchants hawked their wares from colorful stalls, their calls weaving through the air alongside the scent of spiced meats and fresh bread. Festive banners in Lucial colours fluttered overhead, and laughter mingled with the clatter of boots on stone. Yet beneath the surface buzz, a tension hummed—an undercurrent of anticipation that tightened as they neared the arena gates.
 
 Then it came—a jarring clash of iron bells, joined by the steady thud of sand-worn feet. Their words fell silent, a ripple of stillness spreading outward. Torren, Jaro, and Tarek slowed their pace; the street itself seemed to tense. Eyes turned.
@@ -5089,12 +5126,18 @@ Lucian officers from other participating forts, clad in their house’s colors, 
 
 Envoys, ever observant, cataloged each reaction, their own visages carefully empty to avoid any misstep.
 
+At the center sat Morvaine, Thrice-Scarred Hierophant of the Order of Severin. His skin bore the marks of ceremonial brands across his bare scalp, each scar threaded with black opal. He reclined on velvet cushions, one gaunt hand gripping an iron crozier, the other idly tracing a rosary of finger-bones. Around him gathered scarlet-robed hierarchs, laden with rings, reliquaries, and the cloying scent of attar meant to cover traces of old blood. They chanted litanies of self-denial, even as they surrounded themselves with gem-studded opulence.
+Behind them followed novices in plain cincture and linen—young, earnest, still believing in a sacred purpose. They marched in step, unaware of the records of bribes and tithes swelling Morvaine’s coffers or the dungeons hidden beneath his sanctuaries. The higher one rose in Severin, the more shadowed the paths became; innocence was stripped away layer by layer.
 
-(text-colour:#c0975f)[&#39;&#39;Torren must decide how to react in the moment, balancing his duty with his growing unease.&#39;&#39;]
+The procession pressed forward, a tangible force of sanctioned harshness pushing legionaries to the roadside. A single nod from Morvaine prompted an acolyte to lash a porter with greater force, the whip&#39;s crack splitting the air. Dust blended with incense; blood dotted the heated stone.
+
+
+(text-colour:#c0975f)[&#39;&#39;How does Torren react?&#39;&#39;]
+
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Silently Endure]] &lt;/span&gt;
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Offer a Quiet Word of Support]]&lt;/span&gt;
-&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Shield Jaro&#39;s Expression]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="125" name="Days of Innocence 2" tags="" position="550,1200" size="100,100">&lt;h2&gt;Days of Innocence 2&lt;/h2&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Offer a Quiet Support.]]&lt;/span&gt;
+&lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Shield Jaro&#39;s Expression]]&lt;/span&gt;(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="125" name="Days of Innocence 2" tags="" position="550,1200" size="100,100">&lt;h2&gt;Days of Innocence 2&lt;/h2&gt;
 Once the wagons were empty, they&#39;d huddle in the blue shade by the courtyard wall, the driver weaving stories of pirates, whirlpools, and true khamsin with feigned exasperation and real warmth. Their knack for turning anything into a game was evident in how they jostled for the best listening spot near the unloading area.
 
 As the afternoon waned and the shadows grew longer, the mood shifted. The ancient tales quieted them—accounts of mage wars that had shattered what was once an idyllic realm. From where they sat, the children could see the distant silhouette of Fort Kezarak’s southwestern flank, where the walls merged with the Great Cliff. Its sheer face was carved with a deep incision, running straight down to the base, scarring the wall and bursting into the pockmarked, blistered sand below. There, deep obsidian shards still shone from the heat that had turned it into glass—the marks of the sorcery that had created the Mage Sands. Where rivers once cut through green valleys and forests stretched to the horizon, now only fissures, sinkholes, and crystallized sand drifts remained—scars of betrayal and power.
@@ -5104,7 +5147,7 @@ Torren remembered the driver’s eyes glinting as he spoke of a Ne’Tiriania ma
 
 
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Stories Roots in the desert]]&lt;/span&gt;
-
+(set: $lastPassage to (passage:)&#39;s name)
 </tw-passagedata><tw-passagedata pid="126" name="He runs ahead with the others, she&#39;s not part of their circle." tags="" position="675,750" size="100,100">&lt;h2&gt;He runs ahead with the others, leaving Siania behind, making clear she’s not yet part of their circle..&lt;/h2&gt;
 
 The others follow without hesitation, their pace quickening as Torren leads. He&#39;s always been the fastest, the one to follow, some think, falling into step. Siania stays behind, the space between her and the group growing. //She&#39;s different,// others murmur, watching her. The distance feels natural to some, but to others, the absence weighs heavier than before.
@@ -5114,7 +5157,8 @@ The others follow without hesitation, their pace quickening as Torren leads. He&
 &lt;!--Stories Roots in the desert--&gt;
 (set: $torren to it - 1, $jaro to it - 1, $tarek to it - 1, $fortKezerakApproval to it - 1)
 (set: $notificationMessage to &quot;-1 Fort Kezerak, Jaro and Tarek disapprove&quot;)
-(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="127" name="He slows to run beside Siania" tags="" position="550,750" size="100,100">&lt;h2&gt;He slows to run beside Siania, falling into step with her without fanfare..&lt;/h2&gt;
+(display: &quot;Notification&quot;)
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="127" name="He slows to run beside Siania" tags="" position="550,750" size="100,100">&lt;h2&gt;He slows to run beside Siania, falling into step with her without fanfare..&lt;/h2&gt;
 
 The painted wagons of the storytellers&#39; caravan beckoned in the distance. Torren, usually the first to race ahead, matched his stride to Siania&#39;s. Her small legs worked hard to keep up, her face bright with the effort. He offered no words, no grand gesture, just a steady presence. The other boys, drawn to Torren&#39;s quiet strength, eased their pace without being told. A few glanced at Siania, noticing the determination in her face, the way she struggled to keep up. A flicker of understanding passed between them. //Maybe she&#39;s not so bad//, one seemed to think. //Torren&#39;s looking out for her.// The wagons still promised treats and tales, but the race had subtly transformed into a shared journey, one where Siania now had a place.
 
@@ -5128,7 +5172,8 @@ The painted wagons of the storytellers&#39; caravan beckoned in the distance. To
 (set: $helpedSiania to true)
 (set: $torren to it + 1, $jaro to it + 1, $tarek to it + 1, $fortKezerakApproval to it + 1)
 (set: $notificationMessage to &quot;+1 Fort Kezerak, Jaro and Tarek approve, Ran with the fox&quot;)
-(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="128" name="He calls out sharply to the boys, ordering them to wait for Siania" tags="" position="775,750" size="100,100">&lt;h2&gt;He calls out sharply to the boys, ordering them to wait for Siania..&lt;/h2&gt;
+(display: &quot;Notification&quot;)
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="128" name="He calls out sharply to the boys, ordering them to wait for Siania" tags="" position="775,750" size="100,100">&lt;h2&gt;He calls out sharply to the boys, ordering them to wait for Siania..&lt;/h2&gt;
 
 
 His voice cuts through the air, firm and unyielding. He&#39;s always got to be in charge, some think, bristling at the command. The group halts abruptly, eyes flicking between one another and Torren. //Why does he always have to make it a thing? //others wonder, resenting the forced situation. The children&#39;s own sense of choice is overridden. Siania stands caught in the middle—pulled forward by his command, yet uneasy with the attention it draws. She didn&#39;t ask for this, some realize, feeling a mix of pity and resentment. Friendships aren’t something to be commanded, and the weight of his authority leaves a tension that lingers long after the race resumes.
@@ -5140,7 +5185,8 @@ His voice cuts through the air, firm and unyielding. He&#39;s always got to be i
 &lt;!--Stories Roots in the desert--&gt;
 (set: $torren to it + 1, $jaro to it + 1, $tarek to it + 1, $fortKezerakApproval to it + 2)
 (set: $notificationMessage to &quot;+2 Fort Kezerak, Jaro and Tarek approve&quot;)
-(display: &quot;Notification&quot;)</tw-passagedata><tw-passagedata pid="129" name="AllegianceTable Passage" tags="" position="75,300" size="100,100">(display: &quot;Header&quot;)
+(display: &quot;Notification&quot;)
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="129" name="AllegianceTable Passage" tags="" position="75,300" size="100,100">(display: &quot;Header&quot;)
 
 (link: &quot;Back&quot;)[(go-to: (history: 1))]</tw-passagedata><tw-passagedata pid="130" name="Allegiances" tags="" position="375,150" size="100,100">&lt;!--Allegiances--&gt;
 &lt;!-- CSS styling --&gt;
@@ -5474,7 +5520,8 @@ Torren takes all the sweets and demands his favourite stories for himself, ignor
 (set: $fortKezerakApproval to it - 1, $jaro to it - 1, $tarek to it - 1)
 
 
-&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Days of Innocence 2]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="137" name="Torren shares the best with Siania, creating a special bond" tags="" position="550,1025" size="100,100">&lt;H2&gt;Torren only shares with Siania.&lt;/H2&gt;
+&lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Next|Days of Innocence 2]]&lt;/span&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="137" name="Torren shares the best with Siania, creating a special bond" tags="" position="550,1025" size="100,100">&lt;H2&gt;Torren only shares with Siania.&lt;/H2&gt;
 He remembered the way his arm had felt around Siania&#39;s small shoulders that day, how he&#39;d automatically given her the biggest piece of candy. &quot;You deserve something nice,&quot; he&#39;d said, as if a sugar treat could replace belonging.
 
 The other boys had shuffled their feet. He&#39;d noticed that much, though he hadn&#39;t cared to decipher their glances at the time. They didn&#39;t dislike Siania - she was just a little thing - but something had changed. Before, they&#39;d all played the game together. He would lead the haggling, spinning wild stories while the others jumped in, their combined efforts turning worthless stones into treasures.
@@ -5490,7 +5537,7 @@ The memory burned now. He&#39;d taken the easy path - showering Siania with indi
 (set: $notificationMessage to &quot;The boys resent Torren&#39;s favoritism. No approval gained.&quot;)
 (display: &quot;Notification&quot;)
 (set: $fortKezerakApproval to it + 1, $jaro to it - 1, $tarek to it - 1)
-
+(set: $lastPassage to (passage:)&#39;s name)
 </tw-passagedata><tw-passagedata pid="138" name="Torren brings Siania into the game" tags="" position="775,1025" size="100,100">&lt;H2&gt;Torren brings Siania into the game.&lt;/H2&gt;
 
 Torren’s grin was all mischief as he nudged Siania forward. “Alright, little fox, you’re in.”
@@ -5535,6 +5582,7 @@ The driver chuckled, watching their squabble with amusement. &quot;Her stone, he
 
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[We&#39;ll share. -&gt; Siania Shares]]&lt;/span&gt;
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[ All mine. -&gt; Siania Keeps]]&lt;/span&gt;
+(set: $lastPassage to (passage:)&#39;s name)
 
 
 
@@ -5602,7 +5650,7 @@ As Siania distributed the spoils with careful fairness, the driver caught Torren
 (display: &quot;Notification&quot;)
 (set: $fortKezerakApproval to it + 2, $jaro to it + 1, $tarek to it +1, $loyalistApproval to it +1)
 
-</tw-passagedata><tw-passagedata pid="141" name=" Siania Keeps" tags="" position="775,1125" size="100,100">&lt;H2&gt;Siania Keeps&lt;/H2&gt;
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="141" name=" Siania Keeps" tags="" position="775,1125" size="100,100">&lt;H2&gt;Siania Keeps&lt;/H2&gt;
 
 Siania looked at the slings and swords, a glint of determination in her eyes. “All mine,” she said, clutching the prizes tightly.
 
@@ -5627,13 +5675,15 @@ But it wasn&#39;t just the boys whose opinions mattered. Siania felt a subtle ch
 (set: $jaro to $jaro - 1)
 (set: $tarek to $tarek - 1)
 (set: $torren to $torren - 1)
-(set: $loyalistApproval to $loyalistApproval - 1)</tw-passagedata><tw-passagedata pid="142" name="escalates tension" tags="" position="875,1850" size="100,100">&lt;H2&gt;The Diplomat - A Reckless Gambit&lt;/H2&gt;
+(set: $loyalistApproval to $loyalistApproval - 1)
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="142" name="escalates tension" tags="" position="875,1850" size="100,100">&lt;H2&gt;The Diplomat - A Reckless Gambit&lt;/H2&gt;
 
 Valerius let a faint edge creep into his smile, holding Lady Vestergaard’s gaze a moment longer—a silent dare to test her composure. The polite veneer between them cracked just enough to reveal the undercurrents of rivalry and threat. Her attendants stiffened, exchanging wary glances. Her son’s expression flickered with interest, recognizing the boldness but also the risk. He preferred subtlety, but understood the power of a well-timed provocation.
 
 A cold wave of self-reproach washed over Valerius. This was not strength; it was a misjudgment. The Count’s son had once traded with House Kren—an alliance now severed. Valerius had needed to secure the son’s cooperation to forge an alliance vital for the realm’s stability. Now, lacking any real leverage, his reckless challenge had scuttled that possibility. The fragile bonds that kept the border towns supplied with iron and wheat—and thus the realm secure—were imperiled by his error. Worse still, he had invited the wrath of House Vestergaard itself, led by Lady Vestergaard, whose son was soon to marry the Emperor’s daughter and currently enjoyed the emperors favor. The consequences of this misstep would not be easily borne.
 
-[[return to sianias trial]]</tw-passagedata><tw-passagedata pid="143" name="holds back" tags="" position="1000,1850" size="100,100">&lt;H2&gt;The Diplomat - A Measured Pause&lt;/H2&gt;
+[[return to sianias trial]]
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="143" name="holds back" tags="" position="1000,1850" size="100,100">&lt;H2&gt;The Diplomat - A Measured Pause&lt;/H2&gt;
 
 Valerius returned Lady Vestergaard’s cool appraisal with a polite, unreadable smile—the faintest suggestion of warmth, carefully measured. The court was a game of patience and precision; now was not the time to reveal his hand or risk alienating a powerful house. He needed to preserve the fragile possibility of alliance with the Count’s son, whose cooperation was vital to securing the realm’s borders.
 
@@ -5645,7 +5695,8 @@ Darian’s fingers drummed lightly on the armrest, his thoughts unreadable. He s
 
 By holding back, Valerius chose prudence over bravado. He would wait, watch, and seek subtler means to rebuild trust and forge the alliance necessary to stabilize the realm. The game was far from over, and patience might yet turn the tide.
 
-[[return to sianias trial]]</tw-passagedata><tw-passagedata pid="144" name="return to sianias trial" tags="" position="850,2050" size="100,100">&lt;H2&gt;Return to the Passing&lt;/H2&gt;
+[[return to sianias trial]]
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="144" name="return to sianias trial" tags="" position="850,2050" size="100,100">&lt;H2&gt;Return to the Passing&lt;/H2&gt;
 
 His gaze snapped back to Siania, then involuntarily to Vestergaard. The Count’s face was rapt. Their bond. If the old blood’s power was real – and the impossible evidence screamed that it was – then their union wasn’t just a political trap laid by Severin. It was a potential conduit for the very force the Order sought to control… or a spark to ignite that force against them, guided by its own inscrutable purpose. Magic might &quot;use&quot; them, his mentor warned. But to what end? Against Severin?
 
@@ -5684,7 +5735,7 @@ The possibility unsettled him, bright and unfamiliar. The Solunara cast its twin
  &lt;span class=&quot;utilityBtn&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Author notes: Valerious]]&lt;/span&gt;
 
 &lt;span class=&quot;styled-choice&quot;&gt; (text-colour: &quot;#c0975f&quot;)[[Next|Chapter 3  Vestergaard: Thoughts before the fight]]&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="145" name="Check Emperor Loyalty" tags="" position="75,950" size="100,100"></tw-passagedata><tw-passagedata pid="146" name="Passage 1" tags="" position="1100,550" size="100,100">{
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata><tw-passagedata pid="145" name="Check Emperor Loyalty" tags="" position="75,950" size="100,100"></tw-passagedata><tw-passagedata pid="146" name="Passage 1" tags="" position="1100,550" size="100,100">{
   &lt;!-- Update Siania&#39;s loyalty to Torren --&gt;
   (set: $siania to $characters&#39;s siania)
   (set: $currentLoyalty to $siania&#39;s loyaltyToTorren)
@@ -5818,7 +5869,7 @@ Torren could feel the shift—how the boys held back, unsure what to make of her
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Torren shares the best with Siania, creating a special bond]]&lt;/span&gt;
 
 &lt;span class=&quot;styled-choice&quot; style=&quot;color:#c0975f;&quot;&gt;[[Torren brings Siania into the game]]&lt;/span&gt;
-</tw-passagedata></tw-storydata>
+(set: $lastPassage to (passage:)&#39;s name)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
